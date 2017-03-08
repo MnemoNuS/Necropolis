@@ -1,38 +1,80 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title – приложение ASP.NET</title>
+
+    <meta charset="utf-8">
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="Похоронные и ритуальные услуги в ярославле">
+    <meta name="keywords" content="Your keywords">
+    <meta name="author" content="MnemoN">
+    <script>
+        $(document).ready(function () {
+            jQuery('.camera_wrap').camera();
+            $('.magnifier').touchTouch();
+        });
+    </script>
+    <!--[if (gt IE 9)|!(IE)]><!-->
+    <script src="~/scripts/jquery.mobile.customized.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 8]>
+        <div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/img/upgrade.jpg"border="0"alt=""/></a></div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" href="~/Content/ie.css" type="text/css" media="screen">
+      <script src="~/Scripts/html5shiv.js"></script>
+    <![endif]-->
+
+    <title>@ViewBag.Title – Некрополь - похоронные и ритуальные услуги в Ярославле</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <header>
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("О программе", "About", "Home")</li>
-                    <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
-                </ul>
+            <div class="row">
+                <div class="span12">
+                    <h1 class="brand">@Html.ActionLink("НЕКРОПОЛЬ", "Index", "Home", new { area = "" })</h1>
+                    <div class="navbar_">
+                        <div class="navbar-inner">
+                            <ul class="nav sf-menu">
+                                <li class="active">@Html.ActionLink("Главная", "Index", "Home")</li>
+                                <li>@Html.ActionLink("О нас", "About", "Home")</li>
+                                <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
     <div class="container body-content">
         @RenderBody()
-        <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+            <section class="social-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="span6">
+                            <div class="phone">
+                                <img src="~/Content/images/phone-icon.png" alt="">
+                                <span class="social-title"><strong>Позвоните нам </strong> (4852) 73-39-98</span><br>
+                                Часы работы: круглосуточно
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        NECROPOLIS &copy; @DateTime.Now.Year &nbsp; | Городской Ритуальный Центр | Полный комплекс ритуальных услуг в Ярославле
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
 

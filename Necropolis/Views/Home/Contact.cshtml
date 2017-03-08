@@ -1,17 +1,65 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Контакты";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<div id="content" class="padding-content">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="wrap"><h2 class="lines">Контактная информация</h2></div>
+                <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8547.692213307413!2d39.8403032!3d57.6157909!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xadd0238c810590b7!2z0JPQvtGA0L7QtNGB0LrQvtC5INGA0LjRgtGD0LDQu9GM0L3Ri9C5INGG0LXQvdGC0YA!5e0!3m2!1sru!2sru!4v1488980194590" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span4">
+                <div class="wrap one-line-heading"><h2 class="line">Адрес</h2></div>
+                <address class="address">
+                    150003, г. Ярославль,<br>
+                    ул. Загородный сад, д. 11 (территория б-цы им. Соловьёва)<br>
+                    Въезд с ул. Харитонова,<br>
+                    Телефон(круглосуточно):  (4852) 73-39-98,<br>
+                    Телефон:  (4852) 94-29-48,<br>
+                    Телефон:  (4852) 93-20-72<br>
+                    E-mail: <a href="#">yargorcentr@gmail.com</a>
+                </address>
+            </div>
+            <div class="span8">
+                <div class="wrap one-line-heading"><h2 class="line">Будьте с нами на связи</h2></div>
+                <form id="contact-form" class="contact-form">
+                    <div class="success"> Сообщение отправлено! <strong>Мы скоро с вами свяжемся.</strong> </div>
+                    <fieldset>
+                        <div class="coll-1">
+                            <label class="name">
+                                <input type="text" value="Name:"><br>
+                                <span class="error">*Имя не соответствует требованиям.</span> <span class="empty">*Это обязательное поле.</span>
+                            </label>
+                        </div>
+                        <div class="coll-2">
+                            <label class="email">
+                                <input type="email" value="Email:"><br>
+                                <span class="error">*Email не соответствует требованиям.</span> <span class="empty">*Это обязательное поле.</span>
+                            </label>
+                        </div>
+                        <div class="coll-3">
+                            <label class="phone">
+                                <input type="tel" value="Phone:"><br>
+                                <span class="error">*Телефон не соответствует требованиям.</span> <span class="empty">*Это обязательное поле.</span>
+                            </label>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div>
+                            <label class="message">
+                                <textarea>Message:</textarea><br>
+                                <span class="error">*Сообщение слишком короткое.</span> <span class="empty">*Это обязательное поле.</span>
+                            </label>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="buttons-wrapper clearfix"><a class="btn btn-primary link" data-type="submit">Отправить</a></div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

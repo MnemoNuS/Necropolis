@@ -20,11 +20,20 @@ namespace Necropolis
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/jquery.js",
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/superfish.js",
+                      "~/Scripts/jquery.mobilemenu.js",
+                      "~/Scripts/camera.js",
+                      "~/Scripts/jquery.easing.1.3.js",
+                      "~/Scripts/touchTouch.jquery.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+                   bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/responsive.css",
+                      "~/Content/camera.css",
+                      "~/Content/style.css",
+                      "~/Content/touchTouch.css",
                       "~/Content/site.css"));
         }
     }
