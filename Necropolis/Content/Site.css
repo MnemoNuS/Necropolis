@@ -1,1 +1,115 @@
-﻿
+﻿footer, header, .body-content, .colomns-top, .colomns-middle, .colomns-bottom {
+    position: relative;
+}
+
+footer {
+    background: url('../content/images/header-bg.png') left top repeat-x;
+    z-index: 5;
+}
+
+header {
+    background: url('../content/images/header-bg.png') left bottom repeat-x;
+}
+
+
+.social-block {
+    border: none;
+}
+
+.colomns-top::before {
+    position: absolute;
+    content: "";
+    width: 200px;
+    height: 100%;
+    background-image: url('images/colomn-top.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+    z-index: -100;
+}
+
+.colomns-top::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-image: url('images/colomn-top.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 200px 100%;
+    z-index: -100;
+    -webkit-transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+.colomns-middle::before {
+    position: absolute;
+    content: "";
+    width: 200px;
+    height: 100%;
+    z-index: -100;
+    background-image: url('images/colomn-middle.png');
+    background-repeat: repeat-y;
+    background-size: 200px 100%;
+}
+
+.colomns-middle::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    z-index: -100;
+    background-image: url('images/colomn-middle.png');
+    background-repeat: no-repeat;
+    -webkit-transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+    background-size: 200px 100%;
+}
+
+
+.colomns-bottom::before {
+    position: absolute;
+    content: "";
+    width: 200px;
+    height: 100%;
+    z-index: -100;
+    background-image: url('images/colomn-bottom.png');
+    background-repeat: no-repeat;
+}
+
+.colomns-bottom::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    z-index: -100;
+    background-image: url('images/colomn-bottom.png');
+    background-repeat: no-repeat;
+    -webkit-transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+
+/*оформление рамок*/
+
+.body-content .thumbnails.collection .thumbnail {
+    border: 3px solid white; 
+}
+
+    .thumbnail a {
+        font-size: 20px;
+    }

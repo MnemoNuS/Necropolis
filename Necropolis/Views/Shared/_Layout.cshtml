@@ -34,7 +34,7 @@
     @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
-    <header>
+    <header class="colomns-top">
         <div class="container">
             <div class="row">
                 <div class="span12">
@@ -52,9 +52,13 @@
             </div>
         </div>
     </header>
-    <div class="container body-content">
-        @RenderBody()
-        <footer>
+    <div class="body-content colomns-middle">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+    <footer class="colomns-bottom">
+        <div class="container">
             <section class="social-block">
                 <div class="container">
                     <div class="row">
@@ -68,15 +72,13 @@
                     </div>
                 </div>
             </section>
-            <div class="container">
-                <div class="row">
-                    <div class="span12">
-                        NECROPOLIS &copy; @DateTime.Now.Year &nbsp; | Городской Ритуальный Центр | Полный комплекс ритуальных услуг в Ярославле
-                    </div>
+            <div class="row">
+                <div class="span12">
+                    NECROPOLIS &copy; @DateTime.Now.Year &nbsp; | Городской Ритуальный Центр | Полный комплекс ритуальных услуг в Ярославле
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

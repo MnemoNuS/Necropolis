@@ -136,11 +136,24 @@
     <Content Include="Content\images\camera-caption-bg.png" />
     <Content Include="Content\images\camera-loader.gif" />
     <Content Include="Content\images\camera_skins.png" />
+    <Content Include="Content\images\catalog\icons\coffins.jpg" />
+    <Content Include="Content\images\catalog\icons\crosses.jpg" />
+    <Content Include="Content\images\catalog\icons\monuments.jpg" />
+    <Content Include="Content\images\catalog\icons\mourning tapes.jpg" />
+    <Content Include="Content\images\catalog\icons\other-goods.jpg" />
+    <Content Include="Content\images\catalog\icons\wreaths.jpg" />
+    <Content Include="Content\images\colomn-1.png" />
+    <Content Include="Content\images\colomn-2.png" />
+    <Content Include="Content\images\colomn-3.png" />
+    <Content Include="Content\images\colomn-bottom.png" />
+    <Content Include="Content\images\colomn-middle.png" />
+    <Content Include="Content\images\colomn-top.png" />
     <Content Include="Content\images\extra-bg.gif" />
     <Content Include="Content\images\facebook-icon.png" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\images\header-bg.gif" />
+    <Content Include="Content\images\header-bg.png" />
     <Content Include="Content\images\heading-line.gif" />
     <Content Include="Content\images\list-marker.png" />
     <Content Include="Content\images\magnifier.png" />
@@ -151,6 +164,12 @@
     <Content Include="Content\images\screen_zoom.png" />
     <Content Include="Content\images\screen_zoom_hover.png" />
     <Content Include="Content\images\search-icon.png" />
+    <Content Include="Content\images\sets\set-clients.jpg" />
+    <Content Include="Content\images\sets\set-cremation.jpg" />
+    <Content Include="Content\images\sets\set-econom.jpg" />
+    <Content Include="Content\images\sets\set-muslim.jpg" />
+    <Content Include="Content\images\sets\set-premium.jpg" />
+    <Content Include="Content\images\sets\set-standart.jpg" />
     <Content Include="Content\images\sf-menu-hover.gif" />
     <Content Include="Content\images\sf-menu-li-bg.gif" />
     <Content Include="Content\images\twitter-icon.png" />
@@ -246,8 +265,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\catalog\icons\" />
-    <Folder Include="Content\images\sets\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
