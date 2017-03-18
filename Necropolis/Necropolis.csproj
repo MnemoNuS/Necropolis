@@ -159,6 +159,7 @@
     <Content Include="Content\images\magnifier.png" />
     <Content Include="Content\images\marker-chek1.png" />
     <Content Include="Content\images\navbar-inner-bg.gif" />
+    <Content Include="Content\images\necropolis-vensil.png" />
     <Content Include="Content\images\phone-icon.png" />
     <Content Include="Content\images\preloader.gif" />
     <Content Include="Content\images\screen_zoom.png" />
@@ -179,7 +180,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\less\accordion.less" />
