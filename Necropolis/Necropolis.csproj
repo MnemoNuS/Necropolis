@@ -171,7 +171,6 @@
     <Content Include="Content\images\marker-chek1.png" />
     <Content Include="Content\images\navbar-inner-bg.gif" />
     <Content Include="Content\images\necropolis-vensel.png" />
-    <Content Include="Content\images\necropolis-vensil.png" />
     <Content Include="Content\images\phone-icon.png" />
     <Content Include="Content\images\preloader.gif" />
     <Content Include="Content\images\rose.jpg" />
@@ -238,7 +237,9 @@
     <Content Include="Content\less\utilities.less" />
     <Content Include="Content\less\variables.less" />
     <Content Include="Content\less\wells.less" />
+    <None Include="Properties\PublishProfiles\necropolis - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\necropolis - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\necropolis - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\necropolis - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\camera.js" />
