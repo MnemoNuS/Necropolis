@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Less, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Less.3.0\lib\Less.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -128,7 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\camera.css" />
     <Content Include="Content\ie.css" />
     <Content Include="Content\images\404-img.png" />
@@ -136,12 +139,18 @@
     <Content Include="Content\images\camera-caption-bg.png" />
     <Content Include="Content\images\camera-loader.gif" />
     <Content Include="Content\images\camera_skins.png" />
+    <Content Include="Content\images\catalog\icons\candel.png" />
     <Content Include="Content\images\catalog\icons\coffins.jpg" />
+    <Content Include="Content\images\catalog\icons\coffins.png" />
+    <Content Include="Content\images\catalog\icons\cross.png" />
     <Content Include="Content\images\catalog\icons\crosses.jpg" />
     <Content Include="Content\images\catalog\icons\monuments.jpg" />
+    <Content Include="Content\images\catalog\icons\monuments.png" />
     <Content Include="Content\images\catalog\icons\mourning tapes.jpg" />
+    <Content Include="Content\images\catalog\icons\mourning_tape.png" />
     <Content Include="Content\images\catalog\icons\other-goods.jpg" />
     <Content Include="Content\images\catalog\icons\wreaths.jpg" />
+    <Content Include="Content\images\catalog\icons\wreaths.png" />
     <Content Include="Content\images\colomn-1.png" />
     <Content Include="Content\images\colomn-2.png" />
     <Content Include="Content\images\colomn-3.png" />
@@ -156,12 +165,17 @@
     <Content Include="Content\images\header-bg.png" />
     <Content Include="Content\images\heading-line.gif" />
     <Content Include="Content\images\list-marker.png" />
+    <Content Include="Content\images\logo-necropolis-dark.png" />
+    <Content Include="Content\images\logo-necropolis.png" />
     <Content Include="Content\images\magnifier.png" />
     <Content Include="Content\images\marker-chek1.png" />
     <Content Include="Content\images\navbar-inner-bg.gif" />
+    <Content Include="Content\images\necropolis-vensel.png" />
     <Content Include="Content\images\necropolis-vensil.png" />
     <Content Include="Content\images\phone-icon.png" />
     <Content Include="Content\images\preloader.gif" />
+    <Content Include="Content\images\rose.jpg" />
+    <Content Include="Content\images\rose.png" />
     <Content Include="Content\images\screen_zoom.png" />
     <Content Include="Content\images\screen_zoom_hover.png" />
     <Content Include="Content\images\search-icon.png" />
@@ -182,7 +196,6 @@
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
     <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\less\accordion.less" />
     <Content Include="Content\less\alerts.less" />
     <Content Include="Content\less\bootstrap.less" />
