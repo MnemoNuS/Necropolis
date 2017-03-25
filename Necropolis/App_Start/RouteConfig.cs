@@ -13,11 +13,19 @@ namespace Necropolis
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("Home", "", new { controller = "Home", action = "Index" });
+
+            routes.MapRoute("Catalog", "Catalog", new { controller = "Catalog", action = "Index" });
+
+            routes.MapRoute("RitualServices", "RitualServices", new { controller = "RitualServices", action = "Index" });
+
+            routes.MapRoute("Contact", "Contact", new { controller = "Home", action = "Contact" });
+
             routes.MapRoute(
-                name: "Default",
-                url: "{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                "Default", // Route name
+                "{controller}/{action}/{id}", // URL with parameters
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                );
         }
     }
 }

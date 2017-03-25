@@ -24,6 +24,8 @@ namespace Necropolis
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/superfish.js",
                       "~/Scripts/jquery.mobilemenu.js",
+                      "~/Scripts/jquery.mobile.customized.min.js",
+                      "~/Scripts/jquery-migrate-1.1.1.js",
                       "~/Scripts/camera.js",
                       "~/Scripts/jquery.easing.1.3.js",
                       "~/Scripts/touchTouch.jquery.js"));

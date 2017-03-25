@@ -1,37 +1,37 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<meta charset="utf-8">
-	<link rel="icon" href="~/favicon.ico" type="image/x-icon">
-	<link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
-	<meta name="description" content="Похоронные и ритуальные услуги в ярославле">
-	<meta name="keywords" content="Your keywords">
-	<meta name="author" content="MnemoN">
-	<script>
-		$(document).ready(function () {
-			jQuery('.camera_wrap').camera();
-			$('.magnifier').touchTouch();
-		});
-	</script>
-	<!--[if (gt IE 9)|!(IE)]><!-->
-	<script src="~/scripts/jquery.mobile.customized.min.js"></script>
-	<!--<![endif]-->
-	<!--[if lt IE 8]>
-		<div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/img/upgrade.jpg"border="0"alt=""/></a></div>
-	<![endif]-->
-	<!--[if lt IE 9]>
-	  <link rel="stylesheet" href="~/Content/ie.css" type="text/css" media="screen">
-	  <script src="~/Scripts/html5shiv.js"></script>
-	<![endif]-->
+    <meta charset="utf-8">
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="Похоронные и ритуальные услуги в ярославле">
+    <meta name="keywords" content="Your keywords">
+    <meta name="author" content="MnemoN">
+    <script>
+        $(document).ready(function () {
+            jQuery('.camera_wrap').camera();
+            $('.magnifier').touchTouch();
+        });
+    </script>
+    <!--[if (gt IE 9)|!(IE)]><!-->
+    <script src="~/scripts/jquery.mobile.customized.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 8]>
+        <div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/img/upgrade.jpg"border="0"alt=""/></a></div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" href="~/Content/ie.css" type="text/css" media="screen">
+      <script src="~/Scripts/html5shiv.js"></script>
+    <![endif]-->
 
-	<title>Некрополь - @ViewBag.Title - похоронные и ритуальные услуги в Ярославле</title>
-	@Styles.Render("~/Content/css")
-	@Scripts.Render("~/bundles/modernizr")
-	@Scripts.Render("~/bundles/bootstrap")
+    <title>Некрополь - @ViewBag.Title - похоронные и ритуальные услуги в Ярославле</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
     <header class="colomns-top">
@@ -54,8 +54,8 @@
 
                 <div class="span12">
                     <h1 class="brand">
-                        <img class="logo" src="../../Content/images/logo-necropolis.png"/>
-                        @Html.ActionLink("НЕКРОПОЛЬ", "Index", "Home", new {area = ""})
+                        <img class="logo" src="../../Content/images/logo-necropolis.png" />
+                        @Html.ActionLink("НЕКРОПОЛЬ", "Index", "Home", new { area = "" })
                     </h1>
                     <p class="slogan">Достойные похороны без переплат</p>
 
@@ -63,10 +63,44 @@
                         <div class="navbar-inner">
                             <ul class="nav sf-menu">
                                 <li class="active">@Html.ActionLink("Главная", "Index", "Home")</li>
-                                <li>@Html.ActionLink("Услуги", "About", "Home")</li>
-                                <li>@Html.ActionLink("Каталог", "Contact", "Home")</li>
-                                <li>@Html.ActionLink("Информация", "About", "Home")</li>
+                                <li>
+                                    <a href="@Url.Action("Index", "RitualServices")">
+                                        Услуги
+                                        <ul>
+                                            <li>
+                                                Похороны
+                                                <ul>
+                                                    <li>
+                                                        <a href="@Url.Action("Basic", "RitualServices")">Базовый</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="@Url.Action("Extended", "RitualServices")">Расширенный</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="@Url.Action("Premium", "RitualServices")">Премиум</a>
+                                                    </li>
+                                                </ul>
+
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "Catalog")">
+                                        Каталог
+                                        <ul>
+                                            <li><a href="#">Кресты</a></li>
+                                            <li><a href="#">Памятники</a></li>
+                                            <li><a href="#">Траурные ленты</a></li>
+                                            <li><a href="#">Венки</a></li>
+                                            <li><a href="#">Гробы</a></li>
+                                            <li><a href="#">Другие товары</a></li>
+                                        </ul>
+                                    </a>
+                                </li>
+                                <li><a href="">Информация</a></li>
                                 <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+
                             </ul>
                         </div>
                     </div>
@@ -74,36 +108,36 @@
             </div>
         </div>
     </header>
-	<div class="body-content colomns-middle">
-		<div class="container">
-			@RenderBody()
-		</div>
-	</div>
-	<footer class="colomns-bottom">
-		<div class="container">
-			<section class="social-block">
-				<div class="container">
-					<div class="row">
-						<div class="span6">
-							<div class="phone">
-								<img src="~/Content/images/phone-icon.png" alt="">
-								<span class="social-title"><strong>Позвоните нам </strong> (4852) 733-998</span><br>
-								Часы работы: круглосуточно
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<div class="row">
-				<div class="span12">
-					NECROPOLIS &copy; @DateTime.Now.Year &nbsp; | Городской Ритуальный Центр | Полный комплекс ритуальных услуг в Ярославле
-				</div>
-			</div>
-		</div>
-	</footer>
+    <div class="body-content colomns-middle">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+    <footer class="colomns-bottom">
+        <div class="container">
+            <section class="social-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="span6">
+                            <div class="phone">
+                                <img src="~/Content/images/phone-icon.png" alt="">
+                                <span class="social-title"><strong>Позвоните нам </strong> (4852) 733-998</span><br>
+                                Часы работы: круглосуточно
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="row">
+                <div class="span12">
+                    NECROPOLIS &copy; @DateTime.Now.Year &nbsp; | Городской Ритуальный Центр | Полный комплекс ритуальных услуг в Ярославле
+                </div>
+            </div>
+        </div>
+    </footer>
 
-	@Scripts.Render("~/bundles/jquery")
-	@Scripts.Render("~/bundles/bootstrap")
-	@RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

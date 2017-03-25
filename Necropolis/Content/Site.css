@@ -176,6 +176,7 @@ a.call:hover, a.call:focus {
         line-height: 45px;
         height: 45px;
         font-size: 20px;
+        color: #252525;
     }
 
         .category span.title.bottom {
@@ -324,7 +325,7 @@ a.call:hover, a.call:focus {
         height: 45px;
         width: 45px;
         margin: 0 auto;
-        border: 1px solid white;
+        border: 1px solid #252525;
         border-radius: 25px;
     }
 
@@ -338,4 +339,6 @@ a.call:hover, a.call:focus {
         margin-left: -7%;
     }
 
-    
+.thumbnail.dark {
+    background: #252525;
+}
