@@ -108,7 +108,7 @@ h1.brand a:hover {
   line-height: 25px;
   text-transform: uppercase;
   font-weight: bold;
-  background: url('../content/images/sf-menu-li-bg.gif') right top repeat-y;
+  /*background: url('../content/images/sf-menu-li-bg.gif') right top repeat-y;*/
   position: relative;
 }
 .sf-menu > li > a {

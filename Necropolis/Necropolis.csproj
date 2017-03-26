@@ -142,16 +142,10 @@
     <Content Include="Content\images\camera-loader.gif" />
     <Content Include="Content\images\camera_skins.png" />
     <Content Include="Content\images\catalog\icons\candel.png" />
-    <Content Include="Content\images\catalog\icons\coffins.jpg" />
     <Content Include="Content\images\catalog\icons\coffins.png" />
-    <Content Include="Content\images\catalog\icons\cross.png" />
-    <Content Include="Content\images\catalog\icons\crosses.jpg" />
-    <Content Include="Content\images\catalog\icons\monuments.jpg" />
+    <Content Include="Content\images\catalog\icons\crosses.png" />
     <Content Include="Content\images\catalog\icons\monuments.png" />
-    <Content Include="Content\images\catalog\icons\mourning tapes.jpg" />
     <Content Include="Content\images\catalog\icons\mourning_tape.png" />
-    <Content Include="Content\images\catalog\icons\other-goods.jpg" />
-    <Content Include="Content\images\catalog\icons\wreaths.jpg" />
     <Content Include="Content\images\catalog\icons\wreaths.png" />
     <Content Include="Content\images\colomn-1.png" />
     <Content Include="Content\images\colomn-2.png" />

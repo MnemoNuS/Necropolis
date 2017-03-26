@@ -20,6 +20,7 @@ header {
     padding: 10px 10px 5px 10px;
     border: 1px solid white;
 }
+
 .social-block {
     border: none;
 }
@@ -136,18 +137,19 @@ header {
     padding: 0;
     padding-top: 80px;
 }
+
 @media (max-width: 1319px) and (min-width: 1024px) {
-.call {
-    position: relative;
-    right: 0;
-    top: 0;
-    padding: 0;
-    padding-top: 5px;
-    text-align: -webkit-center;
-    float: right;
-    text-align: left;
-    margin-bottom: -20px;
-}
+    .call {
+        position: relative;
+        right: 0;
+        top: 0;
+        padding: 0;
+        padding-top: 5px;
+        text-align: -webkit-center;
+        float: right;
+        text-align: left;
+        margin-bottom: -20px;
+    }
 }
 
 a.call:hover, a.call:focus {
@@ -239,8 +241,9 @@ a.call:hover, a.call:focus {
 
 
 .category-icon {
-    height: 74%;
+    height: 60%;
     margin-top: 10px;
+    padding: 15px;
 }
 
 .cross {
@@ -329,15 +332,15 @@ a.call:hover, a.call:focus {
         border-radius: 25px;
     }
 
-    .body-content {
-        background-image: url('images/rose.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
+.body-content {
+    background-image: url('images/rose.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 
-    .section-options .vensel-big {
-        margin-left: -7%;
-    }
+.section-options .vensel-big {
+    margin-left: -7%;
+}
 
 .thumbnail.dark {
     background: #252525;
