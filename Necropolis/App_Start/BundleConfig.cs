@@ -20,15 +20,18 @@ namespace Necropolis
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/jquery.js",
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/camera.js",
+                      "~/Scripts/jquery-1.10.2.js",
+                      "~/Scripts/jquery-migrate-1.1.1.js",
+                      "~/Scripts/jquery.easing.1.3.js",
+                      "~/Scripts/jquery.js",
                       "~/Scripts/superfish.js",
                       "~/Scripts/jquery.mobilemenu.js",
                       "~/Scripts/jquery.mobile.customized.min.js",
-                      "~/Scripts/jquery-migrate-1.1.1.js",
-                      "~/Scripts/camera.js",
-                      "~/Scripts/jquery.easing.1.3.js",
-                      "~/Scripts/touchTouch.jquery.js"));
+                      "~/Scripts/touchTouch.jquery.js",
+                      "~/Scripts/site.js",
+                      "~/Scripts/jquery.slicknav.js"));
 
                    bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -36,6 +39,7 @@ namespace Necropolis
                       "~/Content/camera.css",
                       "~/Content/style.css",
                       "~/Content/touchTouch.css",
+                      "~/Content/slicknav.css",
                       "~/Content/site.css"));
         }
     }

@@ -161,25 +161,18 @@
     <Content Include="Content\images\header-bg.png" />
     <Content Include="Content\images\heading-line.gif" />
     <Content Include="Content\images\list-marker.png" />
-    <Content Include="Content\images\logo-necropolis-dark.png" />
     <Content Include="Content\images\logo-necropolis.png" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\magnifier.png" />
     <Content Include="Content\images\marker-chek1.png" />
     <Content Include="Content\images\navbar-inner-bg.gif" />
     <Content Include="Content\images\necropolis-vensel.png" />
     <Content Include="Content\images\phone-icon.png" />
     <Content Include="Content\images\preloader.gif" />
-    <Content Include="Content\images\rose.jpg" />
     <Content Include="Content\images\rose.png" />
     <Content Include="Content\images\screen_zoom.png" />
     <Content Include="Content\images\screen_zoom_hover.png" />
     <Content Include="Content\images\search-icon.png" />
-    <Content Include="Content\images\sets\set-clients.jpg" />
-    <Content Include="Content\images\sets\set-cremation.jpg" />
-    <Content Include="Content\images\sets\set-econom.jpg" />
-    <Content Include="Content\images\sets\set-muslim.jpg" />
-    <Content Include="Content\images\sets\set-premium.jpg" />
-    <Content Include="Content\images\sets\set-standart.jpg" />
     <Content Include="Content\images\sf-menu-hover.gif" />
     <Content Include="Content\images\sf-menu-li-bg.gif" />
     <Content Include="Content\images\twitter-icon.png" />
@@ -249,6 +242,8 @@
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.mobile.customized.min.js" />
     <Content Include="Scripts\jquery.mobilemenu.js" />
+    <Content Include="Scripts\jquery.slicknav.js" />
+    <Content Include="Scripts\jquery.slicknav.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -256,6 +251,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Content\slicknav.css" />
+    <Content Include="Content\slicknav.min.css" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Scripts\superfish.js" />
     <Content Include="Scripts\touchTouch.jquery.js" />
     <Content Include="Scripts\_references.js" />
@@ -281,6 +279,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\sets\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

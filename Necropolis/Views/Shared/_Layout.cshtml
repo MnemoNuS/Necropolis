@@ -37,73 +37,75 @@
     <header class="colomns-top">
         <div class="container">
             <div class="row">
-                <a class="call" href="tel:+4852733998">
-
-                    <section class="social-block call">
-                        <div class="span6">
-
-                            <div class="phone">
-                                <img src="~/Content/images/phone-icon.png" alt="">
-                                <span class="social-title"><strong>Позвоните нам </strong> (4852) 733-998</span><br>
-                                Часы работы: круглосуточно
-                            </div>
-
-                        </div>
-                    </section>
-                </a>
 
                 <div class="span12">
                     <h1 class="brand">
-                        <img class="logo" src="../../Content/images/logo-necropolis.png" />
-                        @Html.ActionLink("НЕКРОПОЛЬ", "Index", "Home", new { area = "" })
+                        <a href="@Url.Action("Index", "Home")"><img class="logo" src="../../Content/images/logo.png" /></a>
                     </h1>
-                    <p class="slogan">Достойные похороны без переплат</p>
-
-                    <div class="navbar_">
+                    <div class="navbar_" id="menu-frame">
                         <div class="navbar-inner">
-                            <ul class="nav sf-menu">
+                            <ul class="nav sf-menu " id="menu">
                                 <li class="active">@Html.ActionLink("Главная", "Index", "Home")</li>
                                 <li>
                                     <a href="@Url.Action("Index", "RitualServices")">
                                         Услуги
-                                        <ul>
-                                            <li>
-                                                Похороны
-                                                <ul>
-                                                    <li>
-                                                        <a href="@Url.Action("Basic", "RitualServices")">Базовый</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="@Url.Action("Extended", "RitualServices")">Расширенный</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="@Url.Action("Premium", "RitualServices")">Премиум</a>
-                                                    </li>
-                                                </ul>
-
-                                            </li>
-                                        </ul>
                                     </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            Похороны
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="@Url.Action("Basic", "RitualServices")">Базовый</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Extended", "RitualServices")">Расширенный</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Premium", "RitualServices")">Премиум</a>
+                                                </li>
+                                            </ul>
+
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
                                     <a href="@Url.Action("Index", "Catalog")">
                                         Каталог
-                                        <ul>
-                                            <li><a href="#">Кресты</a></li>
-                                            <li><a href="#">Памятники</a></li>
-                                            <li><a href="#">Траурные ленты</a></li>
-                                            <li><a href="#">Венки</a></li>
-                                            <li><a href="#">Гробы</a></li>
-                                            <li><a href="#">Другие товары</a></li>
-                                        </ul>
                                     </a>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">Кресты</a></li>
+                                        <li><a href="#">Памятники</a></li>
+                                        <li><a href="#">Траурные ленты</a></li>
+                                        <li><a href="#">Венки</a></li>
+                                        <li><a href="#">Гробы</a></li>
+                                        <li><a href="#">Другие товары</a></li>
+                                    </ul>
                                 </li>
-                                <li><a href="">Информация</a></li>
+                                <li>@Html.ActionLink("Информация", "Contact", "Home")</li>
                                 <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
-
                             </ul>
                         </div>
                     </div>
+
+                </div>
+                <div class="span12 ">
+                    <section class="social-block call">
+                        <img src="~/Content/images/phone-icon.png" alt="">
+                        <div class="phone">
+                            <span class="social-title"><strong>Позвоните нам </strong></span><br />
+                            <a class="social-title" href="tel:+4852733998">
+                                <span>(4852) 733-998 (круглосуточно)</span>
+                            </a>
+                            <br />
+                            <a class="social-title" href="tel:+4852942948">
+                                <span>(4852) 942-948</span>
+                            </a>
+                            <br />
+                            <span>Часы работы: круглосуточно</span>
+
+                        </div>
+
+                    </section>
                 </div>
             </div>
         </div>
@@ -115,19 +117,28 @@
     </div>
     <footer class="colomns-bottom">
         <div class="container">
-            <section class="social-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="span6">
-                            <div class="phone">
-                                <img src="~/Content/images/phone-icon.png" alt="">
-                                <span class="social-title"><strong>Позвоните нам </strong> (4852) 733-998</span><br>
-                                Часы работы: круглосуточно
-                            </div>
+            <div class="row">
+
+                <div class="span12 ">
+                    <section class="social-block">
+                        <img src="~/Content/images/phone-icon.png" alt="">
+                        <div class="phone">
+                            <span class="social-title"><strong>Позвоните нам </strong></span><br />
+                            <a class="social-title" href="tel:+4852733998">
+                                <span>(4852) 733-998 (круглосуточно)</span>
+                            </a>
+                            <br />
+                            <a class="social-title" href="tel:+4852942948">
+                                <span>(4852) 942-948</span>
+                            </a>
+                            <br />
+                            <span>Часы работы: круглосуточно</span>
+
                         </div>
-                    </div>
+
+                    </section>
                 </div>
-            </section>
+            </div>
             <div class="row">
                 <div class="span12">
                     NECROPOLIS &copy; @DateTime.Now.Year &nbsp; | Городской Ритуальный Центр | Полный комплекс ритуальных услуг в Ярославле

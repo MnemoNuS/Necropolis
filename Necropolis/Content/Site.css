@@ -132,23 +132,77 @@ header {
 
 .call {
     position: absolute;
-    right: 0;
-    top: 0;
+    top: 15px;
     padding: 0;
-    padding-top: 80px;
+    padding-top: 5px;
+    text-align: -webkit-center;
+    float: right;
+    text-align: left;
+    margin-bottom: -20px;
+    left: 0;
+    margin-left: 50%;
 }
 
-@media (max-width: 1319px) and (min-width: 1024px) {
+.social-block img {
+    float: left;
+    margin-right: 17px;
+    width: 88px;
+}
+
+.social-block .phone {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .social-block img {
+        float: left;
+        margin-right: 17px;
+        margin-top: 10px;
+    }
+}
+
+.social-block .social-title {
+    padding-top: 0 !important;
+    font-weight: 300;
+    color: #929292;
+}
+
+
+@media (max-width: 979px) and (min-width: 767px) {
     .call {
         position: relative;
-        right: 0;
         top: 0;
+        left: 0;
         padding: 0;
-        padding-top: 5px;
-        text-align: -webkit-center;
-        float: right;
-        text-align: left;
-        margin-bottom: -20px;
+        margin: 0;
+        margin-bottom: 15px;
+        float: left;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .call {
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 15px;
+        float: left;
+    }
+
+    .social-block .social-title {
+        padding-top: 0 !important;
+        font-weight: 300;
+        color: #929292;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 320px) {
+    .social-block .social-title {
+        font-size: 12px;
     }
 }
 
@@ -298,13 +352,17 @@ a.call:hover, a.call:focus {
 
 /*логотип*/
 .logo {
-    height: 200px !important;
-    margin-top: -50px;
+    width: 390px !important;
 }
 
 .brand {
-    margin-top: 35px;
+    margin-bottom: 0;
+    padding-bottom: 0 !important;
 }
+
+    .brand a {
+        height: auto !important;
+    }
 
 
 /*блок что делать*/
@@ -331,17 +389,103 @@ a.call:hover, a.call:focus {
         border: 1px solid #252525;
         border-radius: 25px;
     }
-
+/*роза на бэке*/
 .body-content {
     background-image: url('images/rose.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
+/*корректировка цветов*/
 .section-options .vensel-big {
     margin-left: -7%;
 }
 
+@media (max-width: 768px) {
+    .section-options .vensel-big {
+        margin-left: 0;
+    }
+}
+
 .thumbnail.dark {
     background: #252525;
+}
+
+/*разделители на маленьких разрешениях*/
+
+@media (max-width: 768px) {
+    li.span1.category {
+        display: none;
+    }
+
+    .section-options {
+        margin-left: 0;
+    }
+
+    .section-list {
+        margin-left: 0;
+    }
+}
+
+
+/*меню*/
+
+.slicknav_menu {
+    display: none;
+    background: #3c3c3c;
+    padding: 0;
+}
+
+.slicknav_btn {
+    outline: none;
+    float: left;
+    background-color: #4c4c4c;
+    border-radius: 0;
+    border-bottom: 8px solid #3c3c3c;
+    margin: 0;
+    width: 100%;
+    text-shadow: 0 0 0;
+}
+
+.slicknav_menu .slicknav_menutxt {
+    text-shadow: 0 0 0;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.slicknav_nav .slicknav_row:hover {
+    outline: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: #4c4c4c;
+    color: #fff;
+}
+
+.slicknav_nav a:hover {
+    outline: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    background: #4c4c4c;
+    color: #fff;
+}
+
+.slicknav_menu .slicknav_icon {
+    float: right;
+}
+
+@media screen and (max-width: 980px) {
+    /* #menu is the original menu */
+    .js #menu {
+        display: none;
+    }
+
+    .navbar-inner {
+        display: none;
+    }
+
+    .js .slicknav_menu {
+        display: block;
+    }
 }
