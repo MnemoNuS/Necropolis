@@ -11,12 +11,6 @@
     <meta name="description" content="Похоронные и ритуальные услуги в ярославле">
     <meta name="keywords" content="Your keywords">
     <meta name="author" content="MnemoN">
-    <script>
-        $(document).ready(function () {
-            jQuery('.camera_wrap').camera();
-            $('.magnifier').touchTouch();
-        });
-    </script>
     <!--[if (gt IE 9)|!(IE)]><!-->
     <script src="~/scripts/jquery.mobile.customized.min.js"></script>
     <!--<![endif]-->
@@ -44,31 +38,53 @@
                     </h1>
                     <div class="navbar_" id="menu-frame">
                         <div class="navbar-inner">
-                            <ul class="nav sf-menu " id="menu">
-                                <li class="active">@Html.ActionLink("Главная", "Index", "Home")</li>
-                                <li>
-                                    <a href="@Url.Action("Index", "RitualServices")">
-                                        Услуги
-                                    </a>
+                            <ul class="nav sf-menu " id="menu" active-tab="@ViewBag.MenuTab">
+                                <li id="home">@Html.ActionLink("Главная", "Index", "Home")</li>
+                                <li id="services">
+                                    <a href="#">Услуги</a>
                                     <ul class="sub-menu">
                                         <li>
-                                            Похороны
+                                            <a href="@Url.Action("RitualServices", "Services")">Ритуальные услуги</a>
                                             <ul class="sub-menu">
                                                 <li>
-                                                    <a href="@Url.Action("Basic", "RitualServices")">Базовый</a>
+                                                    <a href="@Url.Action("RitualServices", "Services", new {set = "muslim"})">Мусульманские похороны</a>
                                                 </li>
                                                 <li>
-                                                    <a href="@Url.Action("Extended", "RitualServices")">Расширенный</a>
+                                                    <a href="@Url.Action("RitualServices", "Services", new {set = "embalming" })">Бальзамирование</a>
                                                 </li>
                                                 <li>
-                                                    <a href="@Url.Action("Premium", "RitualServices")">Премиум</a>
+                                                    <a href="@Url.Action("RitualServices", "Services", new {set = "cremation"})">Кремация</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("RitualServices", "Services", new {set = "transport"})">Транспортировка</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("RitualServices", "Services", new {set = "care"})">Уход за захоранениями</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("RitualServices", "Services", new {set = "contract"})">Прижизненный договор</a>
                                                 </li>
                                             </ul>
 
                                         </li>
+                                        <li><a href="@Url.Action("RitualHalls", "Services")">Ритуальные залы</a></li>
+                                        <li>
+                                            <a href="@Url.Action("FuneralSets", "Services")">Комплексы похоронных услуг</a>
+                                            <ul class="sub-menu">
+                                                <li>
+                                                    <a href="@Url.Action("FuneralSets", "Services", new {set = "basic"})">Базовый</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("FuneralSets", "Services", new {set = "extended"})">Расширенный</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("FuneralSets", "Services", new {set = "premium"})">Премиум</a>
+                                                </li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </li>
-                                <li>
+                                <li id="catalog">
                                     <a href="@Url.Action("Index", "Catalog")">
                                         Каталог
                                     </a>
@@ -81,8 +97,35 @@
                                         <li><a href="#">Другие товары</a></li>
                                     </ul>
                                 </li>
-                                <li>@Html.ActionLink("Информация", "Contact", "Home")</li>
-                                <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                                <li id="information">
+                                    <a href="@Url.Action("Information", "Information")">
+                                        Информация
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="@Url.Action("Information", "Information", new {set = "сertificate_of_death"})">
+                                                Как получить справку о смерти?
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Information", "Information", new {set = "master_of_ceremonies"})">
+                                                Зачем приглашать церемониймейстера?
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Information", "Information", new {set = "orthodox_funeral"})">
+                                                Православные похороны
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Information", "Information", new {set = "muslim_funeral"})">
+                                                Мусульманские похороны
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+                                <li id="contacts">@Html.ActionLink("Контакты", "Contact", "Home")</li>
                             </ul>
                         </div>
                     </div>

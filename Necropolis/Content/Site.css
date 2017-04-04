@@ -246,7 +246,7 @@ a.call:hover, a.call:focus {
         position: relative;
         text-align: center;
         color: #929292;
-        padding: 0;
+        padding: 5px;
         margin: 0;
     }
 
@@ -268,6 +268,9 @@ a.call:hover, a.call:focus {
     height: 50px;
     background-size: contain;
     margin: 10%;
+}
+.vensel.only {
+    bottom: -30px;
 }
 
 .category span.price {
@@ -488,4 +491,83 @@ a.call:hover, a.call:focus {
     .js .slicknav_menu {
         display: block;
     }
+}
+
+
+/* центрование списков*/
+.center {
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+@media screen and (max-width: 1024px) {
+    .center {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .center {
+        padding: 0;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+    }
+}
+
+/* центрование текстов*/
+.center-text {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-bottom: 25px;
+}
+
+@media screen and (max-width: 1024px) {
+    .center-text {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .center-text {
+        width: 90%;
+    }
+}
+
+.center-text.left {
+    text-align: left;
+}
+/*ценник похорон*/
+
+.funeral-price {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+    .funeral-price {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .funeral-price {
+        font-size: 16px;
+    }
+}
+
+
+/*картинки на главной*/
+.services .thumbnail img {
+    max-height: 280px;
 }

@@ -17,7 +17,9 @@ namespace Necropolis
 
             routes.MapRoute("Catalog", "Catalog", new { controller = "Catalog", action = "Index" });
 
-            routes.MapRoute("RitualServices", "RitualServices", new { controller = "RitualServices", action = "Index" });
+            routes.MapRoute("Services", "Services", new { controller = "Services", action = "Index" });
+
+            routes.MapRoute("Infrmation", "Information", new { controller = "Information", action = "Information" });
 
             routes.MapRoute("Contact", "Contact", new { controller = "Home", action = "Contact" });
 

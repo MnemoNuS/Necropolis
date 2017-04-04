@@ -126,7 +126,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RitualServicesController.cs" />
+    <Compile Include="Controllers\InformationController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,6 +158,8 @@
     <Content Include="Content\images\facebook-icon.png" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\hall-big.jpg" />
+    <Content Include="Content\images\hall-small.jpg" />
     <Content Include="Content\images\header-bg.gif" />
     <Content Include="Content\images\header-bg.png" />
     <Content Include="Content\images\heading-line.gif" />
@@ -253,6 +256,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Content\slicknav.css" />
     <Content Include="Content\slicknav.min.css" />
+    <Content Include="Scripts\site\scroller.js" />
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\superfish.js" />
     <Content Include="Scripts\touchTouch.jquery.js" />
@@ -271,11 +275,12 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\RitualServices\Basic.cshtml" />
-    <Content Include="Views\RitualServices\Extended.cshtml" />
-    <Content Include="Views\RitualServices\Premium.cshtml" />
     <Content Include="Views\Catalog\Index.cshtml" />
-    <Content Include="Views\RitualServices\Index.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Services\FuneralSets.cshtml" />
+    <Content Include="Views\Services\RitualHalls.cshtml" />
+    <Content Include="Views\Services\RitualServices.cshtml" />
+    <Content Include="Views\Information\Information.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
