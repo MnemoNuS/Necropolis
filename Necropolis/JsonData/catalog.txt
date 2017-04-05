@@ -1,0 +1,37 @@
+[
+  {
+    "Id": "0b5ba4e6bd4a46fe970f1ff77dfcc58d",
+    "Type": 0,
+    "Image": "/Content/images/catalog/IMG0b5ba4e6bd4a46fe970f1ff77dfcc58d.jpg",
+    "ImagePreview": "/Content/images/catalog/IMG0b5ba4e6bd4a46fe970f1ff77dfcc58d.jpg.[small].jpg",
+    "Price": 0
+  },
+  {
+    "Id": "90b75fd119bd48d2a2a6acc643bcdf61",
+    "Type": 0,
+    "Image": "/Content/images/catalog/IMG90b75fd119bd48d2a2a6acc643bcdf61.jpg",
+    "ImagePreview": "/Content/images/catalog/IMG90b75fd119bd48d2a2a6acc643bcdf61.jpg.[small].jpg",
+    "Price": 0
+  },
+  {
+    "Id": "746fc4246e6448b1ac6dfa43e04c31f8",
+    "Type": 0,
+    "Image": "/Content/images/catalog/IMG746fc4246e6448b1ac6dfa43e04c31f8.jpg",
+    "ImagePreview": "/Content/images/catalog/IMG746fc4246e6448b1ac6dfa43e04c31f8.jpg.[small].jpg",
+    "Price": 0
+  },
+  {
+    "Id": "d3b7c04a8b07463eb3f5bf286e0f86ff",
+    "Type": 0,
+    "Image": "/Content/images/catalog/IMGd3b7c04a8b07463eb3f5bf286e0f86ff.jpg",
+    "ImagePreview": "/Content/images/catalog/IMGd3b7c04a8b07463eb3f5bf286e0f86ff.jpg.[small].jpg",
+    "Price": 0
+  },
+  {
+    "Id": "efb9aaca669d49638bff51ac804ee133",
+    "Type": 0,
+    "Image": "/Content/images/catalog/IMGefb9aaca669d49638bff51ac804ee133.jpg",
+    "ImagePreview": "/Content/images/catalog/IMGefb9aaca669d49638bff51ac804ee133.jpg.[small].jpg",
+    "Price": 2134
+  }
+]
