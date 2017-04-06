@@ -73,12 +73,12 @@
                                         Каталог
                                     </a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Кресты</a></li>
-                                        <li><a href="#">Памятники</a></li>
-                                        <li><a href="#">Траурные ленты</a></li>
-                                        <li><a href="#">Венки</a></li>
-                                        <li><a href="#">Гробы</a></li>
-                                        <li><a href="#">Другие товары</a></li>
+                                        <li><a href="@Url.Action("index", "Catalog", new {@type="кресты"})">Кресты</a></li>
+                                        <li><a href="@Url.Action("index", "Catalog", new {@type="памятники"})">Памятники</a></li>
+                                        <li><a href="@Url.Action("index", "Catalog", new {@type="траурные_ленты"})">Траурные ленты</a></li>
+                                        <li><a href="@Url.Action("index", "Catalog", new {@type="венки"})">Венки</a></li>
+                                        <li><a href="@Url.Action("index", "Catalog", new {@type="гробы"})">Гробы</a></li>
+                                        <li><a href="@Url.Action("index", "Catalog", new {@type="другие_товары"})">Другие товары</a></li>
                                     </ul>
                                 </li>
                                 <li>@Html.ActionLink("Информация", "Contact", "Home")</li>

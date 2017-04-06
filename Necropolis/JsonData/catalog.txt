@@ -29,9 +29,16 @@
   },
   {
     "Id": "efb9aaca669d49638bff51ac804ee133",
-    "Type": 0,
+    "Type": 1,
     "Image": "/Content/images/catalog/IMGefb9aaca669d49638bff51ac804ee133.jpg",
     "ImagePreview": "/Content/images/catalog/IMGefb9aaca669d49638bff51ac804ee133.jpg.[small].jpg",
     "Price": 2134
+  },
+  {
+    "Id": "cea73b07bb6e43b6bc138cb779fc7322",
+    "Type": 2,
+    "Image": "/Content/images/catalog/icons/no-image.png",
+    "ImagePreview": "/Content/images/catalog/icons/no-image.png",
+    "Price": 4
   }
 ]
