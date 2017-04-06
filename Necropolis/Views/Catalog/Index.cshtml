@@ -1,8 +1,32 @@
-﻿
+﻿@model IEnumerable<Necropolis.Models.CatalogItemModel>
+
 @{
-    ViewBag.Title = "Каталог товаров";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div class="wrap"><h2 class="lines">Каталог</h2></div>
+			<ul class="thumbnails collection">
+				@*<li class="span4">
+					<div class="thumbnail">
+						<a href="img/gallery-image1-big.jpg" class="magnifier"><span></span><img src="img/gallery-image1.jpg" alt=""></a>
+						<span><a href="#">Lorem ipsum dolor sit amet conse</a></span>
+					</div>
+				</li>*@
+				@foreach (var item in Model)
+				{
+					<li class="span4">
+						<div class="thumbnail" style="height: 200px; background-image: url(@Html.DisplayFor( modelItem => item.ImagePreview )); background-size: cover; background-repeat: no-repeat;">
+							<a href="@Html.DisplayFor( modelItem => item.Image )" class="magnifier" style="height: 100%; width: 100%">
+							</a>
+							<span><a href="#">@Html.DisplayFor(modelItem => item.Price) руб</a></span>
+						</div>
+					</li>
+				}
+			</ul>
+		</div>
+	</div>
+</div>
