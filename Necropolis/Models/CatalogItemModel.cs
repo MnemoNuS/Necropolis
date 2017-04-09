@@ -17,8 +17,11 @@ namespace Necropolis.Models
 	public enum ItemType
 	{
 		Кресты,
-		Надгробия
+		Памятники,
+		Траурные_ленты,
+		Венки,
+		Гробы,
+		Другие_товары
 	}
-
 
 }
