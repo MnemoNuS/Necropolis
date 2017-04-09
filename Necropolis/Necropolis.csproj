@@ -131,6 +131,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CatalogManager.cs" />
+    <Compile Include="Models\CatalogItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +188,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
+    <Content Include="JsonData\catalog.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Content\less\accordion.less" />
     <Content Include="Content\less\alerts.less" />
@@ -260,7 +263,7 @@
     <Content Include="Scripts\site.js" />
     <Content Include="Scripts\superfish.js" />
     <Content Include="Scripts\touchTouch.jquery.js" />
-    <Content Include="Scripts\_references.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -281,11 +284,11 @@
     <Content Include="Views\Services\RitualHalls.cshtml" />
     <Content Include="Views\Services\RitualServices.cshtml" />
     <Content Include="Views\Information\Information.cshtml" />
+    <Content Include="Views\Catalog\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\sets\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
