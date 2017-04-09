@@ -1,33 +1,100 @@
 ﻿@model IEnumerable<Necropolis.Models.CatalogItemModel>
 
 @{
-	ViewBag.Title = "Index";
-	Layout = "~/Views/Shared/_Layout.cshtml";
-	var type = "";
-	var catalog = Model;
-	if( Request.QueryString["type"] != null )
-	{
-		type = Request["type"];
-		catalog = Model.Where(i=>i.Type.ToString().ToLower()==type.ToLower());
-	}
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.MenuTab = "catalog";
+
+    var type = "";
+    var catalog = Model;
+    var forType = Request.QueryString["type"] != null;
+
+    if (forType)
+    {
+        type = Request["type"];
+        catalog = Model.Where(i => i.Type.ToString().ToLower() == type.ToLower());
+    }
 }
 
 <div class="container">
-	<div class="row">
-		<div class="span12">
-			<div class="wrap"><h2 class="lines">Каталог @String.Concat("- ",type.Replace("_"," "))</h2></div>
-			<ul class="thumbnails collection">
-				@foreach (var item in catalog)
-				{
-					<li class="span4">
-						<div class="thumbnail" style="height: 200px; background-image: url(@Html.DisplayFor( modelItem => item.ImagePreview )); background-size: cover; background-repeat: no-repeat;">
-							<a href="@Html.DisplayFor( modelItem => item.Image )" class="magnifier" style="height: 100%; width: 100%">
-							</a>
-							<span><a href="#">@Html.DisplayFor(modelItem => item.Price) руб</a></span>
-						</div>
-					</li>
-				}
-			</ul>
-		</div>
-	</div>
+    <div class="row">
+        <div class="span12">
+            <div class="wrap">
+
+                <h1 class="lines">
+                    Каталог
+                    @if (forType)
+                    {
+                    @String.Concat("- ", type.Replace("_", " "))
+                        ;
+                    }
+                </h1>
+
+
+
+            </div>
+            <ul class="thumbnails collection">
+                @foreach (var item in catalog)
+                {
+                <li class="span3">
+                    <div class="thumbnail" style="height: 200px; background-image: url(@Html.DisplayFor(modelItem => item.ImagePreview)); background-size: cover; background-repeat: no-repeat;">
+                        <a href="@Html.DisplayFor(modelItem => item.Image)" class="magnifier" style="height: 100%; width: 100%">
+                        </a>
+                        <span><a href="#">@Html.DisplayFor(modelItem => item.Price) руб</a></span>
+                    </div>
+                </li>
+                }
+            </ul>
+            <div class="vensel-big">
+                <img src="../../Content/images/necropolis-vensel.png">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <div class="wrap">
+                <h2 class="lines">Каталоги товаров</h2>
+            </div>
+
+                <ul class="list center">
+                    <li class="span3">
+                        <a href="@Url.Action("index", "Catalog", new {@type = "кресты"})">
+                            <span class="title bottom">Кресты</span>
+                        </a>
+                    </li>
+                    <li class="span3">
+                        <a href="@Url.Action("index", "Catalog", new {@type = "венки"})">
+                            <span class="title bottom">Венки</span>
+                        </a>
+                    </li>
+                    <li class="span3">
+                        <a href="@Url.Action("index", "Catalog", new {@type = "гробы"})">
+                            Гробы
+                        </a>
+                    </li>
+                    <li class="span3">
+                        <a href="@Url.Action("index", "Catalog", new {@type = "памятники"})">
+                            <span class="title bottom">Памятники</span>
+                        </a>
+                    </li>
+                    <li class="span3">
+                        <a href="@Url.Action("index", "Catalog", new {@type = "траурные_ленты"})">
+                            <span class="title bottom">Траурные ленты</span>
+                        </a>
+                    </li>
+                    <li class="span3">
+                        <a href="@Url.Action("index", "Catalog", new {@type = "другие_товыры"})">
+                            <span class="title bottom">Другие товары</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        <div class="span12">
+            <br/>   
+                <div class="vensel-big">
+                    <img src="../../Content/images/necropolis-vensel.png">
+                </div>
+            </div>
+    </div>
+
 </div>

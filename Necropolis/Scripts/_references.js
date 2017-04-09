@@ -18,3 +18,4 @@
 /// <reference path="site/scroller.js" />
 /// <reference path="superfish.js" />
 /// <reference path="touchtouch.jquery.js" />
+/// <reference path="uploadphotos.js" />

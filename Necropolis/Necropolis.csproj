@@ -125,6 +125,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
+    <Compile Include="Controllers\CatalogEditorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformationController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
@@ -132,6 +133,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CatalogManager.cs" />
+    <Compile Include="Models\AuthModel.cs" />
     <Compile Include="Models\CatalogItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -150,18 +152,32 @@
     <Content Include="Content\images\catalog\icons\monuments.png" />
     <Content Include="Content\images\catalog\icons\mourning_tape.png" />
     <Content Include="Content\images\catalog\icons\wreaths.png" />
-    <Content Include="Content\images\colomn-1.png" />
-    <Content Include="Content\images\colomn-2.png" />
-    <Content Include="Content\images\colomn-3.png" />
-    <Content Include="Content\images\colomn-bottom.png" />
-    <Content Include="Content\images\colomn-middle.png" />
-    <Content Include="Content\images\colomn-top.png" />
     <Content Include="Content\images\extra-bg.gif" />
     <Content Include="Content\images\facebook-icon.png" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
-    <Content Include="Content\images\hall-big.jpg" />
-    <Content Include="Content\images\hall-small.jpg" />
+    <Content Include="Content\images\hall\hall-big.jpg" />
+    <Content Include="Content\images\hall\hall-big.jpg.[small].jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-1.jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-1.jpg.[small].jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-2.jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-2.jpg.[small].jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-3.jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-3.jpg.[small].jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-4.jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-4.jpg.[small].jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-5.jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-5.jpg.[small].jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-6.jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-6.jpg.[small].jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-7.jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-7.jpg.[small].jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-8.jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-8.jpg.[small].jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-9.jpg" />
+    <Content Include="Content\images\hall\hall-small-gallery-image-9.jpg.[small].jpg" />
+    <Content Include="Content\images\hall\hall-small.jpg" />
+    <Content Include="Content\images\hall\hall-small.jpg.[small].jpg" />
     <Content Include="Content\images\header-bg.gif" />
     <Content Include="Content\images\header-bg.png" />
     <Content Include="Content\images\heading-line.gif" />
@@ -264,6 +280,7 @@
     <Content Include="Scripts\superfish.js" />
     <Content Include="Scripts\touchTouch.jquery.js" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\uploadPhotos.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -284,7 +301,10 @@
     <Content Include="Views\Services\RitualHalls.cshtml" />
     <Content Include="Views\Services\RitualServices.cshtml" />
     <Content Include="Views\Information\Information.cshtml" />
-    <Content Include="Views\Catalog\Create.cshtml" />
+    <Content Include="Views\CatalogEditor\Create.cshtml" />
+    <Content Include="Views\CatalogEditor\Edit.cshtml" />
+    <Content Include="Views\CatalogEditor\Index.cshtml" />
+    <Content Include="Views\CatalogEditor\Auth.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

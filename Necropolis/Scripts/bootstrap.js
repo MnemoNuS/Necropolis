@@ -2285,6 +2285,9 @@ jQuery(function(){
 $('h2.lines').before("<div class='line-before'></div>");
 $('h2.lines').after("<div class='line-after'></div>");
 $('h2.line').after("<div class='line-after'></div>");
+$('h1.lines').before("<div class='line-before'></div>");
+$('h1.lines').after("<div class='line-after'></div>");
+$('h1.line').after("<div class='line-after'></div>");
 $(window).load(function(){
   $('.line-after').each(function() {
   var thiswidth = ($(this).parent().width() - $(this).prev().width()) / 2 - 28;

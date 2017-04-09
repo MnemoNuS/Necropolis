@@ -2,9 +2,9 @@
 @model Necropolis.Models.CatalogItemModel
 
 @{
-	ViewBag.Title = "Edit";
-	Layout = "~/Views/Shared/_Layout.cshtml";
-	var itemTypes = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
+    ViewBag.Title = "Редактор";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.MenuTab = "catalog"; var itemTypes = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
 
 }
 
@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="span12">
 				<div class="wrap">
-					<h2 class="lines">Редактирование</h2>
+					<h1 class="lines">Редактирование</h1>
 				</div>
 				<div class="span3">
 					<div class="thumbnails collection">

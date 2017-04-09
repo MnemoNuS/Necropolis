@@ -2,9 +2,9 @@
 @model Necropolis.Models.CatalogItemModel
 
 @{
-	ViewBag.Title = "Create";
-	Layout = "~/Views/Shared/_Layout.cshtml";
-	var itemTypes = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
+    ViewBag.Title = "Редактор";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.MenuTab = "catalog"; var itemTypes = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
 
 }
 @using( Html.BeginForm() )

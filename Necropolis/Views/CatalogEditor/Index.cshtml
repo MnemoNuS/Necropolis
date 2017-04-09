@@ -2,8 +2,19 @@
 @model IEnumerable<Necropolis.Models.CatalogItemModel>
 
 @{
-	ViewBag.Title = "Index";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Редактор";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.MenuTab = "catalog";
+
+    var type = "";
+    var catalog = Model;
+    var forType = Request.QueryString["type"] != null;
+
+    if (forType)
+    {
+        type = Request["type"];
+        catalog = Model.Where(i => i.Type.ToString().ToLower() == type.ToLower());
+    }
 }
 
 
@@ -11,59 +22,85 @@
 
 
 <div class="container">
-	<div class="row">
-		<div class="span12">
-			<div class="wrap">
-				<h2 class="lines">Редактор каталога</h2>
-			</div>
-			<table class="table">
-				<tr>
-					<th class="span3">
-						@Html.DisplayNameFor(model => model.Type)
-					</th>
-					<th class="span3">
-						@Html.DisplayNameFor(model => model.Image)
-					</th>
-					<th class="span3">
-						@Html.DisplayNameFor(model => model.Price)
-					</th>
-					<th>
-						@Html.ActionLink("Добавить", "Create")
-					</th>
-				</tr>
+    <div class="row">
+        <div class="span4">
+            <div class="wrap one-line-heading">
+                <h2 class="line sub-categories-handler">
+                    Показать @if (forType)
+                    {
+                    @String.Concat("- ", type.Replace("_", " "));
+                    }
+                    else
+                    { @String.Concat("- ", "все");
+                    }
+                </h2>
+            </div>
+            <ul class="list list-padding sub-categories">
+                <li><a href="@Url.Action("index", "CatalogEditor")">Все</a></li>
+                <li><a href="@Url.Action("index", "CatalogEditor", new {@type = "кресты"})">Кресты</a></li>
+                <li><a href="@Url.Action("index", "CatalogEditor", new {@type = "памятники"})">Памятники</a></li>
+                <li><a href="@Url.Action("index", "CatalogEditor", new {@type = "траурные_ленты"})">Траурные ленты</a></li>
+                <li><a href="@Url.Action("index", "CatalogEditor", new {@type = "венки"})">Венки</a></li>
+                <li><a href="@Url.Action("index", "CatalogEditor", new {@type = "гробы"})">Гробы</a></li>
+                <li><a href="@Url.Action("index", "CatalogEditor", new {@type = "другие_товары"})">Другие товары</a></li>
+            </ul>
+        </div>
 
-				@foreach (var item in Model)
-			{
-				<tr>
-					<td>
-						@Html.DisplayFor(modelItem => item.Type)
+        <div class="span8">
+            <div class="wrap one-line-heading">
+                <h2 class="line">Редактор каталога</h2>
+            </div>
+        </div>
+        <div class="span12">
+
+            <table class="table">
+                <tr>
+                    <th class="span3">
+                        Раздел каталога
+                    </th>
+                    <th class="span3">
+                        Изображение
+                    </th>
+                    <th class="span3">
+                        Стоимость
+                    </th>
+                    <th>
+                        @Html.ActionLink("Добавить", "Create")
+                    </th>
+                </tr>
+
+                @foreach (var item in catalog)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
 
 
-					</td>
-					<td>
-						<div class="thumbnails collection span2">
+                        </td>
+                        <td>
+                            <div class="thumbnails collection span3">
 
-							<div class="thumbnail" style="height: 150px; background-image: url(@Html.DisplayFor( modelItem => item.ImagePreview )); background-size: cover; background-repeat: no-repeat;">
-								<a href="@Html.DisplayFor( modelItem => item.Image )" class="magnifier">
-								</a>
-								<span><a href="#">@Html.DisplayFor(modelItem => item.Price) руб</a></span>
-							</div>						</div>
+                                <div class="thumbnail" style="height: 200px; background-image: url(@Html.DisplayFor(modelItem => item.ImagePreview)); background-size: cover; background-repeat: no-repeat;">
+                                    <a href="@Html.DisplayFor(modelItem => item.Image)" class="magnifier">
+                                    </a>
+                                </div>
+                            </div>
 
-					</td>
-					<td>
-						@Html.DisplayFor(modelItem => item.Price)
-					</td>
-					<td>
-						@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price) руб
+                        </td>
+                        <td>
+                            @Html.ActionLink("Редактировать", "Edit", new {id = item.Id}) |
 
-						@Html.ActionLink("Delete", "Delete", new { id = item.Id })
-					</td>
-				</tr>
-			}
+                            @Html.ActionLink("Удалить", "Delete", new {id = item.Id})
+                        </td>
+                    </tr>
+                }
 
-			</table>
+            </table>
 
-		</div>
-	</div>
+        </div>
+    </div>
 </div>
 
