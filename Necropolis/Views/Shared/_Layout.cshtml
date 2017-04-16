@@ -17,14 +17,14 @@
     <script src="~/Scripts/jquery.mobile.customized.min.js"></script>
     <!--<![endif]-->
     <!--[if lt IE 8]>
-        <div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/img/upgrade.jpg"border="0"alt=""/></a></div>
+        <div style='text-align:center'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/img/upgrade.jpg" border="0"alt=""/></a></div>
     <![endif]-->
     <!--[if lt IE 9]>
       <link rel="stylesheet" href="~/Content/ie.css" type="text/css" media="screen">
       <script src="~/Scripts/html5shiv.js"></script>
     <![endif]-->
     <title>Некрополь - @ViewBag.Title - похоронные и ритуальные услуги в Ярославле</title>
-    </head>
+</head>
 <body>
     <header class="colomns-top">
         <div class="container">
@@ -130,7 +130,40 @@
 
                 </div>
                 <div class="span12 ">
-                    <section class="social-block call">
+                    <section class="social-block call" itemscope itemtype="http://schema.org/Organization">
+                        <meta itemprop="name" content="Похоронный дом Некрополь">
+                        <meta itemprop="address" content="г. Ярославль ул. Загородный сад, д. 11 (территория б-цы им. Соловьёва) Въезд с ул. Харитонова">
+                        <img src="~/Content/images/phone-icon.png" alt="">
+                        <div class="phone">
+                            <span class="social-title"><strong>Позвоните нам </strong></span><br />
+                            <a class="social-title" href="tel:+4852733998">
+                                <span><span itemprop="telephone">(4852) 733-998</span> (круглосуточно)</span>
+                            </a>
+                            <br />
+                            <a class="social-title" href="tel:+4852942948">
+                                <span itemprop="telephone">(4852) 942-948</span>
+                            </a>
+                            <br />
+                            <span>Часы работы: круглосуточно</span>
+
+                        </div>
+
+                    </section>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="body-content colomns-middle">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+    <footer class="colomns-bottom">
+        <div class="container">
+            <div class="row">
+
+                <div class="span12 ">
+                    <section class="social-block">
                         <img src="~/Content/images/phone-icon.png" alt="">
                         <div class="phone">
                             <span class="social-title"><strong>Позвоните нам </strong></span><br />
@@ -149,44 +182,13 @@
                     </section>
                 </div>
             </div>
-        </div>
-    </header>
-    <div class="body-content colomns-middle">
-        <div class="container">
-            @RenderBody()
-        </div>
-    </div>
-<footer class="colomns-bottom">
-    <div class="container">
-        <div class="row">
-
-            <div class="span12 ">
-                <section class="social-block">
-                    <img src="~/Content/images/phone-icon.png" alt="">
-                    <div class="phone">
-                        <span class="social-title"><strong>Позвоните нам </strong></span><br/>
-                        <a class="social-title" href="tel:+4852733998">
-                            <span>(4852) 733-998 (круглосуточно)</span>
-                        </a>
-                        <br/>
-                        <a class="social-title" href="tel:+4852942948">
-                            <span>(4852) 942-948</span>
-                        </a>
-                        <br/>
-                        <span>Часы работы: круглосуточно</span>
-
-                    </div>
-
-                </section>
+            <div class="row">
+                <div class="span12">
+                    NECROPOLIS &copy; @DateTime.Now.Year &nbsp; | Некрополь - Похоронный дом  | Полный комплекс ритуальных услуг в Ярославле
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="span12">
-                NECROPOLIS &copy; @DateTime.Now.Year &nbsp; | Некрополь - Похоронный дом  | Полный комплекс ритуальных услуг в Ярославле
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
