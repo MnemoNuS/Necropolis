@@ -1,6 +1,14 @@
 ﻿footer, header, .body-content, .colomns-top, .colomns-middle, .colomns-bottom {
     position: relative;
 }
+
+.hide {
+    display: none;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
 /*h1 заголовки*/
 h1.lines {
     font-size: 25px;
@@ -524,4 +532,90 @@ a.call:hover, a.call:focus {
 
     .information-list li {
         padding-bottom: 10px;
+    }
+/*слайдер цен*/
+.ui-rangeSlider-bar {
+    background: #fff;
+}
+
+/*скролл вверх*/
+.go-up {
+    display: none;
+    position: fixed;
+    bottom: 10%;
+    right: 2%;
+    font-size: 40px;
+    opacity: 0.3;
+}
+
+
+
+    .go-up:hover {
+        opacity: 1;
+    }
+
+/*иконки каталогов в каталоге*/
+
+.tiny {
+    /*margin-left: 22.2%;*/
+    z-index: 100;
+    display: inline-block !important;
+}
+
+@media( min-width:480px ) {
+    .tiny {
+        margin-left: 25px;
+    }
+}
+
+.tiny ul {
+    text-align: center !important;
+    display: inline-block !important;
+    margin: 0!important;
+    margin-left: -4px!important;
+}
+
+.tiny li {
+    width: 50px !important;
+    float: left !important;
+    margin: 3px !important;
+    display: inline-block !important;
+}
+
+.tiny .thumbnail {
+    height: 50px;
+    background: #252525;
+}
+
+    .tiny .thumbnail img {
+        margin-top: 0;
+        width: auto !important;
+    }
+
+    .tiny .thumbnail .title {
+        line-height: 17px;
+        height: 15px;
+        font-size: 9px;
+    }
+
+    .tiny .thumbnail .category-icon {
+        padding: 5px 15px;
+        height: 45%;
+    }
+
+.catalog-menu {
+    position: fixed;
+    width: 60px;
+    right: 0;
+    bottom: 20%;
+    z-index: 100;
+    padding-right: 2%;
+}
+
+    .catalog-menu ul {
+        padding-left: 85px;
+    }
+
+    .catalog-menu:hover ul {
+        padding-left: 35px;
     }

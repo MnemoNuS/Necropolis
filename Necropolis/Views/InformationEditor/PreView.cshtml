@@ -1,0 +1,70 @@
+﻿@using Necropolis.Models
+@model Necropolis.Models.InformationItemModel
+@{
+    ViewBag.Title = "Редактор";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.MenuTab = "control";
+    var informationArticle = Model;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="row">
+
+            <div class="span12">
+                <div class="wrap">
+
+                    <h2>Превью</h2>
+                    <br />
+                    @Html.ActionLink("Назад", "Index", "InformationEditor") |
+                    @Html.ActionLink("Редактировать", "Edit", new { id = informationArticle.Id }) |
+                    <a href="@Url.Action("ChangePublishStatus", new {id = informationArticle.Id})">
+                        @if (informationArticle.Published)
+                        {
+                        <text>Снять с публикаци</text>
+                        }
+                        else
+                        {
+                        <text>Опубликовать</text>
+                        }
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="span12"
+                 @if (informationArticle.Type == InformationItemType.Вопрос) { <text> itemscope itemtype="http://schema.org/Question" </text>    }>
+                <div class="wrap" id="@informationArticle.RouteName">
+                    <h2 class="lines"
+                        @if (informationArticle.Type == InformationItemType.Вопрос) { <text> itemprop="name" </text>    }>
+
+                        @informationArticle.Title
+                    </h2>
+                </div>
+                <div class="center-text left"
+                     @if (informationArticle.Type == InformationItemType.Вопрос) { <text> itemprop="acceptedAnswer" itemscope itemtype="http://schema.org/Answer" </text>    }>
+                    @(new HtmlString(informationArticle.Text.Replace("<ul>", "<ul class='list list - padding'>")))
+                </div>
+
+                <div class="vensel-big">
+                    <img src="../../Content/images/necropolis-vensel.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+

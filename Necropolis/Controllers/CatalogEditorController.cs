@@ -21,8 +21,8 @@ namespace Necropolis.Controllers
         // GET: Catalog
         public ActionResult Index()
         {
-            if (!CheckAuth())
-                return RedirectToAction("Auth");
+            if (!AuthController.CheckAuth(Request.Cookies))
+                return RedirectToAction("Auth", "Auth");
 
             var model = CatalogManager.GetCatalog();
             return View(model);
@@ -31,8 +31,8 @@ namespace Necropolis.Controllers
         // GET: Catalog/Details/5
         public ActionResult Details(string id)
         {
-            if (!CheckAuth())
-                return RedirectToAction("Auth");
+            if (!AuthController.CheckAuth(Request.Cookies))
+                return RedirectToAction("Auth", "Auth", Request.RequestContext.RouteData.Values);
             try
             {
                 CatalogManager.DeleteItem(id);
@@ -47,8 +47,8 @@ namespace Necropolis.Controllers
         // GET: Catalog/Create
         public ActionResult Create()
         {
-            if (!CheckAuth())
-                return RedirectToAction("Auth");
+            if (!AuthController.CheckAuth(Request.Cookies))
+                return RedirectToAction("Auth", "Auth", Request.RequestContext.RouteData.Values);
             var model = new CatalogItemModel();
             model.Id = CatalogManager.generateID();
             model.Image = "/Content/images/catalog/icons/no-image.png";
@@ -60,8 +60,8 @@ namespace Necropolis.Controllers
         [HttpPost]
         public ActionResult Create(CatalogItemModel model)
         {
-            if (!CheckAuth())
-                return RedirectToAction("Auth");
+            if (!AuthController.CheckAuth(Request.Cookies))
+                return RedirectToAction("Auth", "Auth");
             try
             {
                 CatalogManager.SaveItem(model);
@@ -76,8 +76,8 @@ namespace Necropolis.Controllers
         // GET: Catalog/Edit/5
         public ActionResult Edit(string id)
         {
-            if (!CheckAuth())
-                return RedirectToAction("Auth");
+            if (!AuthController.CheckAuth(Request.Cookies))
+                return RedirectToAction("Auth", "Auth");
             var item = CatalogManager.GetItem(id);
             if (item != null)
                 return View(item);
@@ -88,8 +88,8 @@ namespace Necropolis.Controllers
         [HttpPost]
         public ActionResult Edit(CatalogItemModel model)
         {
-            if (!CheckAuth())
-                return RedirectToAction("Auth");
+            if (!AuthController.CheckAuth(Request.Cookies))
+                return RedirectToAction("Auth", "Auth");
             try
             {
                 CatalogManager.SaveItem(model);
@@ -104,8 +104,8 @@ namespace Necropolis.Controllers
         // GET: Catalog/Delete/5
         public ActionResult Delete(string id)
         {
-            if (!CheckAuth())
-                return RedirectToAction("Auth");
+            if (!AuthController.CheckAuth(Request.Cookies))
+                return RedirectToAction("Auth", "Auth" );
             try
             {
                 CatalogManager.DeleteItem(id);
@@ -140,7 +140,10 @@ namespace Necropolis.Controllers
                         {
                             using (var newImage = CatalogManager.ScaleImageTo(image, 400, 300))
                             {
+                                CatalogManager.AddWatermark(image);
                                 image.Save(path);
+
+                                CatalogManager.AddWatermark(newImage);
                                 newImage.Save(path + ".[small]" + Path.GetExtension(fileContent.FileName));
                             }
                         }
@@ -156,30 +159,30 @@ namespace Necropolis.Controllers
             return Json("File uploaded successfully");
         }
 
-        public bool CheckAuth()
-        {
-            return Request.Cookies.Get("Necropolis") != null;
-        }
-        [HttpGet]
-        public ActionResult Auth()
-        {
-            var model = new AuthModel();
-            return View(model);
-        }
-        [HttpPost]
-        public ActionResult Auth(AuthModel model)
-        {
-            if (CheckAuth())
-                return RedirectToAction("Index");
-            if (model.Login == "necropol" && model.Password == DateTime.Now.Day.ToString() + "pas")
-            {
-                HttpCookie myCookie = new HttpCookie("Necropolis");
-                myCookie.Expires = DateTime.Now.AddDays(1d);
-                Response.Cookies.Add(myCookie);
-                return RedirectToAction("Index");
-            }
-            ViewBag.Wrong = true;
-            return View();
-        }
+        //public bool CheckAuth()
+        //{
+        //    return Request.Cookies.Get("Necropolis") != null;
+        //}
+        //[HttpGet]
+        //public ActionResult Auth()
+        //{
+        //    var model = new AuthModel();
+        //    return View(model);
+        //}
+        //[HttpPost]
+        //public ActionResult Auth(AuthModel model)
+        //{
+        //    if (CheckAuth())
+        //        return RedirectToAction("Index");
+        //    if (model.Login == "necropol" && model.Password == DateTime.Now.Day.ToString() + "pas")
+        //    {
+        //        HttpCookie myCookie = new HttpCookie("Necropolis");
+        //        myCookie.Expires = DateTime.Now.AddDays(1d);
+        //        Response.Cookies.Add(myCookie);
+        //        return RedirectToAction("Index");
+        //    }
+        //    ViewBag.Wrong = true;
+        //    return View();
+        //}
     }
 }

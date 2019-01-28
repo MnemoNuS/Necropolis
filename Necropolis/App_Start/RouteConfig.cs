@@ -23,6 +23,10 @@ namespace Necropolis
 
             routes.MapRoute("Contact", "Contact", new { controller = "Home", action = "Contact" });
 
+            routes.MapRoute("Control", "Control", new { controller = "Control", action = "Index" });
+
+            routes.MapRoute("Auth", "Auth", new { controller = "Auth", action = "Auth" });
+
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters

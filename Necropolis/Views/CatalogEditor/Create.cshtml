@@ -4,7 +4,8 @@
 @{
     ViewBag.Title = "Редактор";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.MenuTab = "catalog"; var itemTypes = Enum.GetValues(typeof(ItemType)).OfType<ItemType>().ToList();
+    ViewBag.MenuTab = "control";
+     var itemTypes = Enum.GetValues(typeof(CatalogItemType)).OfType<CatalogItemType>().ToList();
 
 }
 @using( Html.BeginForm() )

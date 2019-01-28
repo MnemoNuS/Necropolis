@@ -1,10 +1,12 @@
-﻿@model IEnumerable<Necropolis.Models.CatalogItemModel>
+﻿@using Necropolis.Models
+@model IEnumerable<Necropolis.Models.CatalogItemModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Каталог товаров";
+    ViewBag.Description = "Траурное убранство является неотъемлемой частью траурной церемонии. Выбранные Вами ритуальные принадлежности подчеркнут Вашу заботу об усопшем и сделают церемонию особенной.";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.MenuTab = "catalog";
-
+    var itemTypes = Enum.GetValues(typeof(CatalogItemType)).OfType<CatalogItemType>().ToList();
     var type = "";
     var catalog = Model;
     var forType = Request.QueryString["type"] != null;
@@ -14,55 +16,12 @@
         type = Request["type"];
         catalog = Model.Where(i => i.Type.ToString().ToLower() == type.ToLower());
     }
+    var maxPrice = catalog.ToList().Max(t => t.Price);
+    var minPrice = catalog.ToList().Min(t => t.Price);
+
 }
 
 <div class="container">
-    <div class="row">
-        <div class="span12">
-            <div class="wrap">
-                <h2 class="lines">Каталоги товаров</h2>
-            </div>
-
-            <ul class="list center">
-                <li class="span3">
-                    <a href="@Url.Action("index", "Catalog", new {@type = "кресты"})">
-                        <span class="title bottom">Кресты</span>
-                    </a>
-                </li>
-                <li class="span3">
-                    <a href="@Url.Action("index", "Catalog", new {@type = "венки"})">
-                        <span class="title bottom">Венки</span>
-                    </a>
-                </li>
-                <li class="span3">
-                    <a href="@Url.Action("index", "Catalog", new {@type = "гробы"})">
-                        Гробы
-                    </a>
-                </li>
-                <li class="span3">
-                    <a href="@Url.Action("index", "Catalog", new {@type = "памятники"})">
-                        <span class="title bottom">Памятники</span>
-                    </a>
-                </li>
-                <li class="span3">
-                    <a href="@Url.Action("index", "Catalog", new {@type = "траурные_ленты"})">
-                        <span class="title bottom">Траурные ленты</span>
-                    </a>
-                </li>
-                <li class="span3">
-                    <a href="@Url.Action("index", "Catalog", new {@type = "другие_товыры"})">
-                        <span class="title bottom">Другие товары</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="span12">
-            <br />
-            <div class="vensel-big">
-                <img src="../../Content/images/necropolis-vensel.png">
-            </div>
-        </div>
-    </div>
 
     <div class="row">
         <div class="span12">
@@ -72,37 +31,181 @@
                     Каталог
                     @if (forType)
                     {
-                        @String.Concat("- ", type.Replace("_", " "))
+                    @String.Concat("- ", type.Replace("_", " "))
                         ;
                     }
                 </h1>
 
 
-
             </div>
-            <ul class="thumbnails collection">
-                @foreach (var item in catalog)
+            <div class="center-text" style="margin-bottom: 0;">
+                <div class="tiny">
+                    <ul class="thumbnails collection">
+                        <li class="category col-centered">
+                            <a href="@Url.Action("index", "Catalog", new {@type = "кресты"})">
+                                <div class="thumbnail">
+                                    <img class="category-icon" src="../../Content/images/catalog/icons/crosses.png" />
+                                    <span class="title bottom">Кресты</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category col-centered">
+                            <a href="@Url.Action("index", "Catalog", new {@type = "венки"})">
+                                <div class="thumbnail">
+                                    <img class="category-icon" src="../../Content/images/catalog/icons/wreaths.png" />
+                                    <span class="title bottom">Венки</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category col-centered">
+                            <a href="@Url.Action("index", "Catalog", new {@type = "гробы"})">
+                                <div class="thumbnail">
+                                    <img class="category-icon" src="../../Content/images/catalog/icons/coffins.png" />
+                                    <span class="title bottom">Гробы</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="thumbnails collection">
+                        <li class="category col-centered">
+                            <a href="@Url.Action("index", "Catalog", new {@type = "памятники"})">
+                                <div class="thumbnail">
+                                    <img class="category-icon" src="../../Content/images/catalog/icons/monuments.png" />
+                                    <span class="title bottom">Памятники</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category col-centered">
+                            <a href="@Url.Action("index", "Catalog", new {@type = "траурные_ленты"})">
+                                <div class="thumbnail">
+                                    <img class="category-icon" src="../../Content/images/catalog/icons/mourning_tape.png" />
+                                    <span class="title bottom">Ленты</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="category col-centered">
+                            <a href="@Url.Action("index", "Catalog", new {@type = "другие_товары"})">
+                                <div class="thumbnail">
+                                    <img class="category-icon" src="../../Content/images/catalog/icons/candel.png" />
+                                    <span class="title bottom">Другое</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="span8 offset2" id="slider-frame" max="@maxPrice" min="@minPrice">
+                @*<div id="slider" name="slider" max="@maxPrice" min="@minPrice"></div>*@
+                <div id="slider" name="slider"></div>
+                <h3 class="center-text">Ценовой диапазон</h3>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+
+            @foreach (var iT in itemTypes)
+            {
+                var cI = catalog.Where(i => i.Type.ToString().ToLower() == iT.ToString().ToLower()).ToList();
+                if (cI.Count > 0 && !forType)
                 {
-                    <li class="span3" itemscope itemtype="http://schema.org/Product">
+                <div class="wrap one-line-heading">
+                    <h2 class="line">@iT.ToString().Replace("_", " ")</h2>
+                </div>
+                }
+                <ul class="thumbnails collection">
+
+                    @foreach (var item in cI.OrderBy(c => c.Price))
+                    {
+                    <li class="span3 item" itemscope itemtype="http://schema.org/Product">
                         <div class="thumbnail" style="height: 200px; background-image: url(@Html.DisplayFor(modelItem => item.ImagePreview)); background-size: cover; background-repeat: no-repeat;">
                             <img src="@Html.DisplayFor(modelItem => item.ImagePreview)" itemprop="image" style="display: none;">
                             <a href="@Html.DisplayFor(modelItem => item.Image)" class="magnifier" style="height: 100%; width: 100%">
                             </a>
-                            <meta itemprop="name" content="Товар-@String.Concat(type.Replace("_", " "), catalog.ToList().IndexOf(item).ToString())"/>
-                            <meta itemprop="description" content="Товар-@String.Concat(type.Replace("_", " "), catalog.ToList().IndexOf(item).ToString())"/>
+                            <meta itemprop="name" content="Товар-@String.Concat(type.Replace("_", " "), catalog.ToList().IndexOf(item).ToString())" />
+                            <meta itemprop="description" content="Товар-@String.Concat(type.Replace("_", " "), catalog.ToList().IndexOf(item).ToString())" />
+                            @if (item.Price > 0)
+                            {
                             <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                            <span>
-                                @Html.DisplayFor(modelItem => item.Price) руб
-                            </span>
-                            <meta itemprop="price" content="@Html.DisplayFor(modelItem => item.Price)">
-                            <meta itemprop="priceCurrency" content="RUB">
-                            <link itemprop="availability" href="http://schema.org/InStock">
-                        </span>
-
+                                <span class="item-price" price="@item.Price">
+                                    @Html.DisplayFor(modelItem => item.Price) руб
+                                </span>
+                                <meta itemprop="price" content="@Html.DisplayFor(modelItem => item.Price)">
+                                <meta itemprop="priceCurrency" content="RUB">
+                                <link itemprop="availability" href="http://schema.org/InStock">
+                            </span>}
                         </div>
                     </li>
-                }
-            </ul>
+
+                    }
+                </ul>
+            }
+
+            <div class="span12" style="text-align: center;">
+                <div class="wrap">
+                    <h2 class="lines">Каталоги товаров</h2>
+                </div>
+                <div class="center-text">
+                    <div class="tiny">
+                        <ul class="thumbnails collection">
+                            <li class="category col-centered">
+                                <a href="@Url.Action("index", "Catalog", new {@type = "кресты"})">
+                                    <div class="thumbnail">
+                                        <img class="category-icon" src="../../Content/images/catalog/icons/crosses.png" />
+                                        <span class="title bottom">Кресты</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="category col-centered">
+                                <a href="@Url.Action("index", "Catalog", new {@type = "венки"})">
+                                    <div class="thumbnail">
+                                        <img class="category-icon" src="../../Content/images/catalog/icons/wreaths.png" />
+                                        <span class="title bottom">Венки</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="category col-centered">
+                                <a href="@Url.Action("index", "Catalog", new {@type = "гробы"})">
+                                    <div class="thumbnail">
+                                        <img class="category-icon" src="../../Content/images/catalog/icons/coffins.png" />
+                                        <span class="title bottom">Гробы</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="thumbnails collection">
+                            <li class="category col-centered">
+                                <a href="@Url.Action("index", "Catalog", new {@type = "памятники"})">
+                                    <div class="thumbnail">
+                                        <img class="category-icon" src="../../Content/images/catalog/icons/monuments.png" />
+                                        <span class="title bottom">Памятники</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="category col-centered">
+                                <a href="@Url.Action("index", "Catalog", new {@type = "траурные_ленты"})">
+                                    <div class="thumbnail">
+                                        <img class="category-icon" src="../../Content/images/catalog/icons/mourning_tape.png" />
+                                        <span class="title bottom">Траурные ленты</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="category col-centered">
+                                <a href="@Url.Action("index", "Catalog", new {@type = "другие_товары"})">
+                                    <div class="thumbnail">
+                                        <img class="category-icon" src="../../Content/images/catalog/icons/candel.png" />
+                                        <span class="title bottom">Другие товары</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
             <div class="vensel-big">
                 <img src="../../Content/images/necropolis-vensel.png">
             </div>
@@ -110,3 +213,13 @@
     </div>
 
 </div>
+@section Css{
+    <link href="~/Content/slider/iThing-min.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="~/Scripts/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.mousewheel.min.js"></script>
+    <script src="~/Scripts/site/jQAllRangeSliders-min.js"></script>
+    <script src="~/Scripts/site/price-slider.js"></script>
+}
+

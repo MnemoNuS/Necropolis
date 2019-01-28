@@ -26,5 +26,39 @@
     var h = $('header').height();
     var f = $('footer').height();
     if(d<w)
-        $('.body-content').css("height", w - h-f);
+        $('.body-content').css("height", w - h - f);
+
+
+    $("#brand").click(function (evt) {
+        if (evt.ctrlKey && evt.shiftKey) {
+            evt.preventDefault();
+            evt.stopPropagation();
+            document.location.replace('/auth');
+        }
+    });
+
+
+    $("#goUp").click(function (evt) {
+        $('html,body').animate({
+            scrollTop: 0
+        });
+    });
+
+    $("#goUp").click(function (evt) {
+        $('html,body').animate({
+            scrollTop: 0
+        });
+    });
+
+    $(document).on( "scroll", function () {
+        var height = $(window).height();
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop > height) {
+            $("#goUp").css('display', 'block');
+        } else {
+            $("#goUp").css('display', 'none');
+
+        }
+    });
+
 });

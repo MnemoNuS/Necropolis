@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Necropolis.Helpers
+@{
+    var description = ViewBag.Description != null ? ViewBag.Description : "Похоронные и ритуальные услуги в ярославле";
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,11 +12,23 @@
     <meta charset="utf-8">
     <link rel="icon" href="~/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="Похоронные и ритуальные услуги в ярославле">
-    <meta name="keywords" content="Your keywords">
+    <meta name="description" content="@description">
     <meta name="author" content="MnemoN">
+    @RenderSection("css", required: false)
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-97098014-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
     <!--[if (gt IE 9)|!(IE)]><!-->
     <script src="~/Scripts/jquery.mobile.customized.min.js"></script>
     <!--<![endif]-->
@@ -23,7 +39,7 @@
       <link rel="stylesheet" href="~/Content/ie.css" type="text/css" media="screen">
       <script src="~/Scripts/html5shiv.js"></script>
     <![endif]-->
-    <title>Некрополь - @ViewBag.Title - похоронные и ритуальные услуги в Ярославле</title>
+    <title>Похоронные и ритуальные услуги в Ярославле - Некрополь - @ViewBag.Title</title>
 </head>
 <body>
     <header class="colomns-top">
@@ -31,7 +47,7 @@
             <div class="row">
 
                 <div class="span12">
-                    <div class="brand">
+                    <div class="brand" id="brand">
                         <a href="@Url.Action("Index", "Home")"><img class="logo" src="../../Content/images/logo.png" /></a>
                     </div>
                     <div class="navbar_" id="menu-frame">
@@ -99,31 +115,54 @@
                                     <a href="@Url.Action("Information", "Information")">
                                         Информация
                                     </a>
+                                    @{
+                                        var informationArticles = InformationManager.GetMenuMembers();
+                                        if (informationArticles != null && informationArticles.Count > 0)
+                                        {
+                                        <ul class="sub-menu">
+                                            @foreach (var informationItemModel in informationArticles)
+                                            {
+                                            <li>
+                                                <a href="@Url.Action("Information", "Information",
+                                                                     new {set = informationItemModel.RouteName})">
+                                                    @informationItemModel.Title
+                                                </a>
+
+                                            </li>
+                                            }
+                                        </ul>
+
+                                        }
+                                    }
+
+                                </li>
+                                <li id="contacts">@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                                @if (Request.Cookies.Get("Necropolis") != null)
+                                {
+                                <li id="control">
+                                    <a href="@Url.Action("Index", "Control")">
+                                        Управление
+                                    </a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="@Url.Action("Information", "Information", new {set = "сertificate_of_death"})">
-                                                Как получить справку о смерти?
+                                            <a href="@Url.Action("Index", "CatalogEditor")">
+                                                Редактор каталога
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="@Url.Action("Information", "Information", new {set = "master_of_ceremonies"})">
-                                                Зачем приглашать церемониймейстера?
+                                            <a href="@Url.Action("Index", "InformationEditor")">
+                                                Редактор статей
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="@Url.Action("Information", "Information", new {set = "orthodox_funeral"})">
-                                                Православные похороны
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="@Url.Action("Information", "Information", new {set = "muslim_funeral"})">
-                                                Мусульманские похороны
+                                            <a href="@Url.Action("LogOut", "Auth")">
+                                                Выход
                                             </a>
                                         </li>
                                     </ul>
 
                                 </li>
-                                <li id="contacts">@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                                }
                             </ul>
                         </div>
                     </div>
@@ -156,6 +195,9 @@
     <div class="body-content colomns-middle">
         <div class="container">
             @RenderBody()
+            <div id="goUp" class="go-up">
+                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            </div>
         </div>
     </div>
     <footer class="colomns-bottom">

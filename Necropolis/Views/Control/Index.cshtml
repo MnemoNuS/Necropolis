@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Управление сайтом";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.MenuTab = "control";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <div class="wrap">
+                <h2 class="lines">Управление сайтом</h2>
+            </div>
+
+            <div class="section-options">
+                <ul class="thumbnails collection">
+                    <li class="span3 category col-centered">
+                        <a href="@Url.Action("Index", "CatalogEditor")">
+                            <div class="thumbnail dark">
+                                <span class="title">Редактор каталога</span>
+                                <p class="description">Добавление и редактирование товаров</p>
+                                <div class="vensel only"></div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="span3 category col-centered">
+                        <a href="@Url.Action("Index", "InformationEditor")">
+                            <div class="thumbnail dark">
+                                <span class="title">Редактор статей</span>
+                                <p class="description">Добавление и редактирование статей</p>
+                                <div class="vensel only"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>

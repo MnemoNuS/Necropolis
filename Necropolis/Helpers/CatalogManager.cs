@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Web;
+using System.Web.UI.WebControls;
 using Necropolis.Models;
 using Newtonsoft.Json;
 using static System.Web.HttpContext;
+using Image = System.Drawing.Image;
 
 namespace Necropolis.Helpers
 {
     public class CatalogManager
     {
         public const string CatalogPath = "~/JsonData/catalog.txt";
+        public const string LogoPath = "~/Content/images/logo.png";
 
         private static long lastTimeStamp = DateTime.UtcNow.Ticks;
 
@@ -98,7 +102,7 @@ namespace Necropolis.Helpers
         public static void DeleteImg(string path)
         {
             var serverPath = Current.Server.MapPath(path);
-            if (serverPath!=null && File.Exists(serverPath))
+            if (serverPath != null && File.Exists(serverPath))
                 File.Delete(serverPath);
         }
         public static CatalogItemModel GetItem(string itemId)
@@ -190,5 +194,76 @@ namespace Necropolis.Helpers
                 return dest;
             }
         }
+
+        public static void AddWatermark(Image image)
+        {
+            var logo = Image.FromFile(Current.Server.MapPath(LogoPath));
+            logo = ScaleImage(logo, image.Width/3, image.Height/3);
+            var watermark = new Bitmap(logo);
+            DrawWatermark(image, watermark, WatermarkPosition.BottomRight, Color.Transparent, 1);
+        }
+
+        public static void DrawWatermark(Image original, Bitmap watermark, WatermarkPosition position, Color transparentColor, float opacity)
+        {
+            if (original == null)
+                throw new ArgumentNullException("original");
+            if (watermark == null)
+                throw new ArgumentNullException("watermark");
+            if (opacity < 0 || opacity > 1)
+                throw new ArgumentOutOfRangeException("Watermark opacity value is out of range");
+
+            Rectangle dest = new Rectangle(
+                GetDestination(original.Size, watermark.Size, position), watermark.Size);
+
+            using (Graphics g = Graphics.FromImage(original))
+            {
+                ImageAttributes attr = new ImageAttributes();
+                ColorMatrix matrix = new ColorMatrix(new float[][] {
+            new float[] { opacity, 0f, 0f, 0f, 0f },
+            new float[] { 0f, opacity, 0f, 0f, 0f },
+            new float[] { 0f, 0f, opacity, 0f, 0f },
+            new float[] { 0f, 0f, 0f, opacity, 0f },
+            new float[] { 0f, 0f, 0f, 0f, opacity } });
+                attr.SetColorMatrix(matrix);
+                //watermark.MakeTransparent(transparentColor);
+
+                g.DrawImage(watermark, dest, 0, 0, watermark.Width, watermark.Height,
+                    GraphicsUnit.Pixel, attr, null, IntPtr.Zero);
+                g.Save();
+            }
+        }
+
+        public enum WatermarkPosition
+        {
+            TopLeft = 0,
+            TopRight,
+            BottomLeft,
+            BottomRight,
+            Middle
+        }
+
+        private static Point GetDestination(Size originalSize, Size watermarkSize, WatermarkPosition position)
+        {
+            Point destination = new Point(0, 0);
+            switch (position)
+            {
+                case WatermarkPosition.TopRight:
+                    destination.X = originalSize.Width - watermarkSize.Width;
+                    break;
+                case WatermarkPosition.BottomLeft:
+                    destination.Y = originalSize.Height - watermarkSize.Height;
+                    break;
+                case WatermarkPosition.BottomRight:
+                    destination.X = originalSize.Width - watermarkSize.Width;
+                    destination.Y = originalSize.Height - watermarkSize.Height;
+                    break;
+                case WatermarkPosition.Middle:
+                    destination.X = (originalSize.Width - watermarkSize.Width) / 2;
+                    destination.Y = (originalSize.Height - watermarkSize.Height) / 2;
+                    break;
+            }
+            return destination;
+        }
+
     }
 }

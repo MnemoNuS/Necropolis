@@ -8,13 +8,13 @@ namespace Necropolis.Models
 	public class CatalogItemModel
 	{
 		public string Id { get; set; }
-		public ItemType Type { get; set; }
+		public CatalogItemType Type { get; set; }
 		public string Image { get; set; }
 		public string ImagePreview { get; set; }
 		public int Price { get; set; }
 	}
 
-	public enum ItemType
+	public enum CatalogItemType
 	{
 		Кресты,
 		Памятники,

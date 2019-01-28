@@ -1,0 +1,146 @@
+﻿@using System.Web.UI.WebControls
+@using Necropolis.Models
+@model IEnumerable<Necropolis.Models.InformationItemModel>
+
+@{
+    ViewBag.Title = "Редактор статей";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.MenuTab = "control";
+
+    var type = "";
+    var catalog = Model;
+    var forType = Request.QueryString["type"] != null;
+
+    if (forType)
+    {
+        type = Request["type"];
+        catalog = Model.Where(i => i.Type.ToString().ToLower() == type.ToLower());
+    }
+}
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="span4">
+            <div class="wrap one-line-heading">
+                <h2 class="line sub-categories-handler">
+                    Показать @if (forType)
+                    {
+                    @String.Concat("- ", type.Replace("_", " "));
+                    }
+                    else
+                    { @String.Concat("- ", "все");
+                    }
+                </h2>
+            </div>
+            <ul class="list list-padding sub-categories">
+                <li><a href="@Url.Action("index", "InformationEditor")">Все</a></li>
+                <li><a href="@Url.Action("index", "InformationEditor", new {@type = "информационная_статья"})">Информационные статьи</a></li>
+                <li><a href="@Url.Action("index", "InformationEditor", new {@type = "Вопрос"})">Вопросы</a></li>
+            </ul>
+        </div>
+
+        <div class="span8">
+            <div class="wrap one-line-heading">
+                <h2 class="line">Редактор статей</h2>
+            </div>
+        </div>
+        <div class="span12">
+
+            <table class="table">
+                <tr>
+                    <th class="span1" style="text-align: center;">
+                        Статус
+                    </th>
+                    <th class="span1" style="text-align: center;">
+                        В меню
+                    </th>
+                    <th class="span1" style="text-align: center;">
+                        Тип
+                    </th>
+                    <th class="span3">
+                        Заголовок
+                    </th>
+                    <th class="span3">
+                        Путевое имя
+                    </th>
+                    <th class="span3">
+                        Дата изменения
+                    </th>
+                    <th>
+                        @Html.ActionLink("Добавить", "Create")
+                    </th>
+                </tr>
+
+                @foreach (var item in catalog)
+                {
+                <tr>
+                    <td style="text-align: center; font-size: 20px;">
+                        <a href="@Url.Action("ChangePublishStatus", new {id = item.Id})">
+                            @if (item.Published)
+                            {
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            }
+                            else
+                            {
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+
+                            }
+                        </a>
+                    </td>
+                    <td style="text-align: center; font-size: 20px;">
+                        <a href="@Url.Action("ChangeMenuStatus", new {id = item.Id})">
+                            @if (item.AddedToMenu)
+                            {
+                            <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                            }
+                            else
+                            {
+                            <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+
+                            }
+                        </a>
+                    </td>
+                    <td style="text-align: center; font-size: 20px;">
+                        @*@Html.DisplayFor(modelItem => item.Type)*@
+                        @if (item.Type == InformationItemType.Вопрос)
+                        {
+                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                        }
+                        else if (item.Type == InformationItemType.Информационная_статья)
+                        {
+                        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                        }
+                        else
+                        {
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        /@Html.DisplayFor(modelItem => item.RouteName)
+                    </td>
+                    <td>
+                        @item.Date.ToString("f")
+                    </td>
+                    <td>
+                        @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) |
+
+                        @Html.ActionLink("Превью", "PreView", new { id = item.Id }) |
+
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+                }
+
+            </table>
+
+        </div>
+    </div>
+</div>

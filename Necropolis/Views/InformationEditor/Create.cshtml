@@ -1,0 +1,76 @@
+﻿@using Necropolis.Models
+@model Necropolis.Models.InformationItemModel
+@{
+    ViewBag.Title = "Редактор";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.MenuTab = "control";
+    var itemTypes = Enum.GetValues(typeof(InformationItemType)).OfType<InformationItemType>().ToList();
+
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="wrap">
+                    <h2 class="lines">Добавить статью</h2>
+                </div>
+                <div class="span3">
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.Id)
+                        <div class="form-group">
+                            <h3>Вид статьи</h3>
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.Type, new SelectList(itemTypes), new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h3>Заголовок</h3>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @id = "priceEditor" } })
+                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h3>Путевое имя</h3>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.RouteName, new { htmlAttributes = new { @class = "form-control", @id = "priceEditor" } })
+                                @Html.ValidationMessageFor(model => model.RouteName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin: 23px 0; padding: 0;">
+                            <div class="">
+                                <input type="submit" value="Создать" class="btn btn-default" />
+
+                                <input type="button" class="btn btn-default" value="Отмена" style="margin-left: 69px;" onclick="location.href = '@Url.Action( "Index", "InformationEditor" )'" />
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="span8">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <h3>Текст статьи</h3>
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control hide" } })
+                                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/site/informationEditor.js"></script>
+    <script src="~/Scripts/tinymce/tinymce.min.js"></script>
+}

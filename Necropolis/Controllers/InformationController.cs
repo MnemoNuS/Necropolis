@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Necropolis.Helpers;
 
 namespace Necropolis.Controllers
 {
@@ -11,7 +12,8 @@ namespace Necropolis.Controllers
         // GET: Information
         public ActionResult Information()
         {
-            return View();
+            var model = InformationManager.GetInformationCatalog().Where(i=>i.Published).ToList();
+            return View(model);
         }
     }
 }
